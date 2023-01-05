@@ -45,7 +45,7 @@ public class ATLStarter {
 		
 		m.addNews(new News("Cambio fermate Stazione di Rogoredo","Abbiamo cambiato le fermate alla stazione di rogoredo: da Alessandria a Sestri Levante e da Milano a Pavia",i));
 		
-		m.addNews(new News("Aumento Costo Biglietti","Dal 9 novembre sarà aumentato il costo di tutti i biglietti e abbonamenti della linea Milano-Pavia perchè siamo molto cattivi sssssssssssssssdddddddd",i));
+		m.addNews(new News("Aumento Costo Biglietti","Dal 9 novembre sarà aumentato il costo di tutti i biglietti e abbonamenti della linea Milano-Pavia perchè ...",i));
 		
 		m.addNews(new News("News di Test 1","Questa è una news solo per testing dello scrollpane",i));
 		
