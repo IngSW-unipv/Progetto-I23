@@ -56,7 +56,7 @@ public class NewsListView extends AbstractView{
 		GridBagConstraints c = new GridBagConstraints();
 		GridBagConstraints c1 = new GridBagConstraints();
 		c.insets = new Insets(6, 6, 6, 6);
-		c1.insets = new Insets(3, 3, 3, 3);
+		c1.insets = new Insets(1, 1, 1, 1);
 		
 		centerpanel.removeAll();
 		
@@ -69,12 +69,6 @@ public class NewsListView extends AbstractView{
 			ptemp.setBackground(Color.WHITE);
 			JLabel l1 = new JLabel(n.getTitolo());
 			JTextArea l2 = new JTextArea(n.getTesto());
-			
-			l2.setLineWrap(true);
-            l2.setWrapStyleWord(true);
-            l2.setColumns(40);
-            l2.setRows(3);
-            l2.setEditable(false);
             
             l2.setLineWrap(true);
             l2.setWrapStyleWord(true);
@@ -85,8 +79,16 @@ public class NewsListView extends AbstractView{
 			c1.gridx = 0;
 			c1.gridy = 0;
 			ptemp.add(l1,c1);
-			c1.gridy = 1;
+			c1.gridy = 2;
 			ptemp.add(l2,c1);
+			
+			if(m.getLoggedUser()!=null) {
+				if(m.getLoggedUser().isResponsabile()) {
+					c1.gridy = 1;
+					JLabel l3 = new JLabel("by "+n.getAutore().getUsername());
+					ptemp.add(l3,c1);
+				}
+			}
 			
 			centerpanel.add(ptemp,c);
 			

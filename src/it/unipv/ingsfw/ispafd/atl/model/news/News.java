@@ -27,5 +27,9 @@ public class News {
 	 public String getTesto() {
 		 return testo;
 	 }
+	 
+	 public Impiegato getAutore() {
+		 return autore;
+	 }
 	
 }
