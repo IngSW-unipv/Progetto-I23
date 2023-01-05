@@ -67,7 +67,7 @@ public class NewsListView extends AbstractView{
 			
 			JPanel ptemp = new JPanel(new GridBagLayout());
 			ptemp.setBackground(Color.WHITE);
-			JTextArea l1 = new JTextArea(n.getTitolo());
+			JLabel l1 = new JLabel(n.getTitolo());
 			JTextArea l2 = new JTextArea(n.getTesto());
 			
 			l2.setLineWrap(true);
