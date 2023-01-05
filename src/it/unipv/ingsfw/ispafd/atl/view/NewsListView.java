@@ -39,8 +39,11 @@ public class NewsListView extends AbstractView{
 		centerpanel = new JPanel(new GridBagLayout());
 		
 		
+		JScrollPane scrollFrame = new JScrollPane(centerpanel);
+		centerpanel.setAutoscrolls(true);
 		
-		this.add(centerpanel, BorderLayout.CENTER);
+		
+		this.add(scrollFrame, BorderLayout.CENTER);
 		this.add(downbuttonpanel, BorderLayout.SOUTH);
 		this.add(pl1, BorderLayout.NORTH);
 		

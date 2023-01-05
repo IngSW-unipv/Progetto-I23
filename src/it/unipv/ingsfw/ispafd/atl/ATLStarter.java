@@ -47,6 +47,12 @@ public class ATLStarter {
 		
 		m.addNews(new News("Aumento Costo Biglietti","Dal 9 novembre sarà aumentato il costo di tutti i biglietti e abbonamenti della linea Milano-Pavia perchè siamo molto cattivi sssssssssssssssdddddddd",i));
 		
+		m.addNews(new News("News di Test 1","Questa è una news solo per testing dello scrollpane",i));
+		
+		m.addNews(new News("News di Test 2","Questa è una news solo per testing dello scrollpane",i));
+		
+		m.addNews(new News("News di Test 3","Questa è una news solo per testing dello scrollpane",i));
+		
 		//fine testing
 		
 		
