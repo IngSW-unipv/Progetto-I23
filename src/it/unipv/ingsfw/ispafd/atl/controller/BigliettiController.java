@@ -32,6 +32,7 @@ public class BigliettiController {
 	    };
 	    
 	    view.getMainview().getBigliettiButton().addActionListener(listabigliettiswitch);
+	    view.getAcquistaBigliettiView().getIndietrobutton().addActionListener(listabigliettiswitch);
 	    
 	    ActionListener indietropageswitch = new ActionListener() {
 
@@ -50,6 +51,25 @@ public class BigliettiController {
 	    };
 	    
 	    view.getListaBigliettiView().getIndietrobutton().addActionListener(indietropageswitch);
+	    
+	    ActionListener acquistapageswitch = new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				manageAction();
+				
+			}
+			
+			private void manageAction() {
+				
+				view.changeView(view.getAcquistaBigliettiView(),m);
+				
+			}
+	    	  
+	    };
+	    
+	    view.getListaBigliettiView().getAcquistaButton().addActionListener(acquistapageswitch);
+	    
 		
 		
 	}
