@@ -85,7 +85,7 @@ public class MainView extends AbstractView{
 		buttonspanel.add(reclamibutton,c);
 		
 		c.gridx = 2;
-		bigliettibutton = new JButton("Biglietti");
+		bigliettibutton = new JButton("Biglietti e Abbonamenti");
 		buttonspanel.add(bigliettibutton,c);
 		
 		c.gridy = 1;
@@ -181,6 +181,10 @@ public class MainView extends AbstractView{
 	
 	public JButton getRegistraDipendentiButton() {
 		return registradipendentibutton;
+	}
+	
+	public JButton getBigliettiButton() {
+		return bigliettibutton;
 	}
 
 }

@@ -27,6 +27,7 @@ public class MainFrame extends JFrame{
 	private RegistrationDipendentiView registrationdipendentiview;
 	private PostaNewsView postanewsview;
 	private NewsListView newslistview;
+	private ListaBigliettiView listabigliettiview;
 	
 	public MainFrame() {
 		
@@ -51,6 +52,7 @@ public class MainFrame extends JFrame{
 		registrationdipendentiview = new RegistrationDipendentiView();
 		postanewsview = new PostaNewsView();
 		newslistview = new NewsListView();
+		listabigliettiview = new ListaBigliettiView();
 		
 		
 		cardPanel.add(mainview, mainview.getCardPosition());
@@ -59,6 +61,8 @@ public class MainFrame extends JFrame{
 		cardPanel.add(registrationdipendentiview,registrationdipendentiview.getCardPosition());
 		cardPanel.add(postanewsview,postanewsview.getCardPosition());
 		cardPanel.add(newslistview, newslistview.getCardPosition());
+		cardPanel.add(listabigliettiview, listabigliettiview.getCardPosition());
+		
 		
 		c1.show(cardPanel, mainview.getCardPosition());
 		//mainpanel.setVisible(true);
@@ -103,6 +107,10 @@ public class MainFrame extends JFrame{
 	
 	public NewsListView getNewsListView() {
 		return newslistview;
+	}
+	
+	public ListaBigliettiView getListaBigliettiView() {
+		return listabigliettiview;
 	}
 	
 }
