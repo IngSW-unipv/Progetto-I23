@@ -62,7 +62,7 @@ public class MainView extends AbstractView{
 		JPanel centerpanel = new JPanel(new BorderLayout());
 		
 		try {
-			BufferedImage img = ImageIO.read(new File("resources/final_png.png"));
+			BufferedImage img = ImageIO.read(new File("resources/disegno_cropped_png.png"));
 			Image dimg = img.getScaledInstance(500, 300, Image.SCALE_SMOOTH);
 			ImageIcon imageIcon = new ImageIcon(dimg);
 			JLabel picLabel = new JLabel(imageIcon);
