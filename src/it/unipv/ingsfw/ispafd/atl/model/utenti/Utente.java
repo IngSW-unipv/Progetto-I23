@@ -4,7 +4,7 @@ import java.util.List;
 
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Biglietto;
-import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Validità;
+import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Tipologia;
 
 public class Utente {
 
@@ -38,14 +38,14 @@ public class Utente {
 	
 	//Dora 
 	
-	public void acquistaAbbonamento(Validità validita) {
+	public void acquistaAbbonamento(Tipologia validita) {
 		
 		Abbonamento ab= new Abbonamento(this, validita);
 		abbonamenti.add(ab);
 		
 	}
 	public void acquistaBiglietto() {
-		Biglietto b = new Biglietto(this, Validità.NOVANTA_MINUTI);
+		Biglietto b = new Biglietto(this, Tipologia.BIGLIETTO_ORDINARIO);
 		abbonamenti.add(b);
 	}
 	

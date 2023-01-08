@@ -9,21 +9,21 @@ public class Abbonamento {
 	
 	private Utente utenteProprietario;
 	private double costo;
-	private Validità validita;
+	private Tipologia tipologia;
 	private Timestamp orarioDiAttivazione;
 	
-	public Abbonamento(Utente utenteProprietario, Validità validita) {
+	public Abbonamento(Utente utenteProprietario, Tipologia tipologia) {
 		this.utenteProprietario = utenteProprietario;
 		
-		switch(validita) {
+		switch(tipologia) {
 			
-		case SETTIMANALE:
+		case ABBONAMENTO_SETTIMANALE:
 			this.costo = 20;
 			break;
-		case MENSILE:
+		case ABBONAMENTO_MENSILE:
 			this.costo = 68;
 			break;
-		case NOVANTA_MINUTI:
+		case BIGLIETTO_ORDINARIO:
 			this.costo = 1.20;
 			break;
 		}
