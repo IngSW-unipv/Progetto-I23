@@ -2,6 +2,7 @@ package it.unipv.ingsfw.ispafd.atl.model;
 
 import java.util.ArrayList;
 
+import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.news.News;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.*;
 
@@ -13,12 +14,14 @@ public class ATLModel {
 		private ArrayList<Utente> utenti;
 		private ArrayList<News> news;
 		private Ospite ospite;
+		private ArrayList<TipoAbbonamento> tipoabbonamento;
 		
 		
 		private ATLModel() {
 			this.loggeduser = null;
 			this.utenti = new ArrayList<Utente>();
 			this.news = new ArrayList<News>();
+			this.tipoabbonamento = new ArrayList<TipoAbbonamento>();
 		}
 		
 		public static ATLModel getIstance() {
@@ -76,6 +79,28 @@ public class ATLModel {
 		
 		public ArrayList<News> getNewsArray(){
 			return news;
+		}
+		
+		public ArrayList<TipoAbbonamento> getTipoAbbonamentoArray() {
+			return tipoabbonamento;
+		}
+		
+		public void addTipoAbbonamento(String nome, Boolean isAbbonamento, int durataminuti, String duratastring, Double costo) {
+			TipoAbbonamento t = new TipoAbbonamento(nome,isAbbonamento,durataminuti,duratastring,costo);
+			tipoabbonamento.add(t);
+		}
+		
+		public TipoAbbonamento getTipoAbbonamentoByNome(String nome) {
+			
+			TipoAbbonamento ret = null;
+			
+			for(TipoAbbonamento t: tipoabbonamento) {
+				if(t.getNome().equals(nome)) {
+					ret = t;
+				}
+			}
+			
+			return ret;
 		}
 	
 }

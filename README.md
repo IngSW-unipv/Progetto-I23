@@ -1,4 +1,4 @@
-# Progetto I23: ATL - Azienda Trasporti LegoCity
+# Progetto-I23: ATL - Azienda Trasporti LegoCity
 
 ![Java](https://img.shields.io/badge/Backend-Java-brightgreen)
 ![Swing](https://img.shields.io/badge/Frontend-Swing-red)

@@ -33,6 +33,11 @@ public class ATLStarter {
 		
 		//testing
 		
+		//da aggiungere poi nel db
+		m.addTipoAbbonamento("Biglietto Ordinario", false, 190, "190 minuti dalla timbratura", 1.20);
+		m.addTipoAbbonamento("Abbonamento Mensile", true, 43800, "1 mese dall'acquisto", 68.00);
+		m.addTipoAbbonamento("Abbonamento Settimanale", true, 10080, "1 settimana dall'acquisto", 20.00);
+		
 		Responsabile r = new Responsabile("fede","spat","fedespat","aaa","hkdfjghd");
 		Utente u = new Utente("prova","abc","a","a");
 		Impiegato i = new Impiegato("paolo","luc","lucche","aaa","fsgr");

@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
+import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
+import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Tipologia;
 import it.unipv.ingsfw.ispafd.atl.view.MainFrame;
 
 public class BigliettiController {
@@ -70,7 +72,43 @@ public class BigliettiController {
 	    
 	    view.getListaBigliettiView().getAcquistaButton().addActionListener(acquistapageswitch);
 	    
-		
+	    ActionListener combochange = new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				manageAction();
+				
+			}
+			
+			private void manageAction() {
+				String durata;
+				Double costo;
+				
+				String selezionato;
+				
+				selezionato=(String) view.getAcquistaBigliettiView().getCombo().getSelectedItem();
+				
+				if((selezionato!=null)&&(selezionato!="")) {
+					
+					TipoAbbonamento temp = m.getTipoAbbonamentoByNome(selezionato);
+					
+					durata=temp.getDurataString();
+					costo=temp.getCosto();
+					
+					view.getAcquistaBigliettiView().getLabelDurata().setText(durata);
+					view.getAcquistaBigliettiView().getLabelCosto().setText(String.format("%.2f", costo)+"€");
+					
+				} else {
+					view.getAcquistaBigliettiView().getLabelDurata().setText("");
+					view.getAcquistaBigliettiView().getLabelCosto().setText("");
+				}
+				
+			}
+	    	  
+	    };
+	    
+	    view.getAcquistaBigliettiView().getCombo().addActionListener(combochange);
 		
 	}
 

@@ -5,10 +5,12 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
 import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
+import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Tipologia;
 
 public class AcquistaBigliettiView extends AbstractView{
@@ -20,7 +22,13 @@ public class AcquistaBigliettiView extends AbstractView{
 	
 	private JLabel labeldurata, labelcosto;
 	
+	private JPanel centerpanel;
+	
 	private JTextField inputcarta;
+	
+	private JComboBox<String> combo;
+	
+	private GridBagConstraints c;
 	
 	public AcquistaBigliettiView() {
 		
@@ -34,17 +42,18 @@ public class AcquistaBigliettiView extends AbstractView{
 		pl1.add(l1,BorderLayout.CENTER);
 
 		
-		GridBagConstraints c = new GridBagConstraints();
+		c = new GridBagConstraints();
 		c.insets = new Insets(5, 5, 5, 5);
-		JPanel centerpanel = new JPanel(new GridBagLayout());
+		centerpanel = new JPanel(new GridBagLayout());
 		JLabel l2 = new JLabel("Oggetto");
 		
-		Tipologia[] choices = {null,Tipologia.BIGLIETTO_ORDINARIO, Tipologia.ABBONAMENTO_SETTIMANALE,Tipologia.ABBONAMENTO_MENSILE};
-		
-	    JComboBox<Tipologia> combo = new JComboBox<Tipologia>(choices);
 	    c.gridx = 0;
 		c.gridy = 0;
 		centerpanel.add(l2,c);
+		
+		
+		
+		combo = new JComboBox<String>();
 		c.gridx = 1;
 		centerpanel.add(combo,c);
 		
@@ -88,6 +97,19 @@ public class AcquistaBigliettiView extends AbstractView{
 	}
 	
 	public void resetLabel(ATLModel m) {
+		inputcarta.setText("");
+		
+		if(combo.getItemCount()==0) {
+		
+			ArrayList<TipoAbbonamento> tarray = m.getTipoAbbonamentoArray();
+			
+			combo.addItem("");
+			
+			for(TipoAbbonamento t: tarray) {
+				combo.addItem(t.getNome());
+			}
+		
+		}
 		
 	}
 	
@@ -113,6 +135,10 @@ public class AcquistaBigliettiView extends AbstractView{
 	
 	public JButton getInviaButton() {
 		return inviabutton;
+	}
+	
+	public JComboBox<String> getCombo(){
+		return combo;
 	}
 
 }
