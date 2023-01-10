@@ -1,6 +1,7 @@
 package it.unipv.ingsfw.ispafd.atl.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -20,7 +21,7 @@ public class AcquistaBigliettiView extends AbstractView{
 	private JButton indietrobutton;
 	private JButton inviabutton;
 	
-	private JLabel labeldurata, labelcosto;
+	private JLabel labeldurata, labelcosto, errorlabel;
 	
 	private JPanel centerpanel;
 	
@@ -83,11 +84,17 @@ public class AcquistaBigliettiView extends AbstractView{
 		centerpanel.add(inputcarta,c);
 		
 		
+		errorlabel = new JLabel("Error Message", SwingConstants.CENTER);
+		errorlabel.setForeground(Color.RED);
+		errorlabel.setFont(new Font("", Font.PLAIN, 25));
+		errorlabel.setVisible(false);
+		
 		indietrobutton = new JButton("← Indietro");
 		JPanel downbuttonpanel = new JPanel(new BorderLayout());
 		downbuttonpanel.add(indietrobutton, BorderLayout.WEST);
 		inviabutton = new JButton("Acquista");
 		downbuttonpanel.add(inviabutton, BorderLayout.CENTER);
+		downbuttonpanel.add(errorlabel, BorderLayout.NORTH);
 		
 		this.add(centerpanel, BorderLayout.CENTER);
 		this.add(downbuttonpanel, BorderLayout.SOUTH);
@@ -99,6 +106,8 @@ public class AcquistaBigliettiView extends AbstractView{
 	public void resetLabel(ATLModel m) {
 		inputcarta.setText("");
 		
+		errorlabel.setVisible(false);
+		
 		if(combo.getItemCount()==0) {
 		
 			ArrayList<TipoAbbonamento> tarray = m.getTipoAbbonamentoArray();
@@ -109,6 +118,8 @@ public class AcquistaBigliettiView extends AbstractView{
 				combo.addItem(t.getNome());
 			}
 		
+		}else {
+			combo.setSelectedItem("");
 		}
 		
 	}
@@ -139,6 +150,11 @@ public class AcquistaBigliettiView extends AbstractView{
 	
 	public JComboBox<String> getCombo(){
 		return combo;
+	}
+	
+	public void setErrorText(String s) {
+		errorlabel.setVisible(true);
+		errorlabel.setText(s);
 	}
 
 }

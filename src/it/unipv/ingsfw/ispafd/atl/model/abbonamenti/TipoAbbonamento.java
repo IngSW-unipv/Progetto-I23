@@ -28,5 +28,9 @@ public class TipoAbbonamento {
 		return costo;
 	}
 	
+	public boolean getIsAbbonamento() {
+		return isAbbonamento;
+	}
+	
 	
 }

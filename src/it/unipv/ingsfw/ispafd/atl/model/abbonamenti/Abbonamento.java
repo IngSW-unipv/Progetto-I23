@@ -8,26 +8,13 @@ import it.unipv.ingsfw.ispafd.atl.model.utenti.Utente;
 public class Abbonamento {
 	
 	private Utente utenteProprietario;
-	private double costo;
-	private Tipologia tipologia;
-	private Timestamp orarioDiAttivazione;
+	private TipoAbbonamento tipoabbonamento;
+	private long data_acquisto;
 	
-	public Abbonamento(Utente utenteProprietario, Tipologia tipologia) {
+	public Abbonamento(Utente utenteProprietario, TipoAbbonamento tipoabbonamento) {
 		this.utenteProprietario = utenteProprietario;
-		
-		switch(tipologia) {
-			
-		case ABBONAMENTO_SETTIMANALE:
-			this.costo = 20;
-			break;
-		case ABBONAMENTO_MENSILE:
-			this.costo = 68;
-			break;
-		case BIGLIETTO_ORDINARIO:
-			this.costo = 1.20;
-			break;
-		}
-		this.orarioDiAttivazione = Timestamp.valueOf(LocalDateTime.now());    //prende l'orario del computer
+		this.tipoabbonamento = tipoabbonamento;
+		this.data_acquisto = System.currentTimeMillis();
 	}
 	
 	

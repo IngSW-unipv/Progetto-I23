@@ -1,6 +1,7 @@
 package it.unipv.ingsfw.ispafd.atl.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -16,6 +17,8 @@ public class ListaBigliettiView extends AbstractView{
 	
 	private JButton indietrobutton;
 	private JButton acquistabutton;
+	
+	private JLabel successlabel;
 	
 	public ListaBigliettiView() {
 		
@@ -34,6 +37,12 @@ public class ListaBigliettiView extends AbstractView{
 		JPanel downbuttonpanel = new JPanel(new BorderLayout());
 		downbuttonpanel.add(indietrobutton, BorderLayout.WEST);
 		
+		successlabel = new JLabel("", SwingConstants.CENTER);
+		successlabel.setForeground(Color.GREEN);
+		successlabel.setFont(new Font("", Font.PLAIN, 25));
+		successlabel.setVisible(false);
+		
+		downbuttonpanel.add(successlabel, BorderLayout.NORTH);
 		
 		this.add(downbuttonpanel, BorderLayout.SOUTH);
 		this.add(pl1, BorderLayout.NORTH);
@@ -42,7 +51,7 @@ public class ListaBigliettiView extends AbstractView{
 	
 	
 	public void resetLabel(ATLModel m) {
-		
+		successlabel.setVisible(false);
 	}
 	
 	public String getCardPosition() {
@@ -55,6 +64,11 @@ public class ListaBigliettiView extends AbstractView{
 	
 	public JButton getAcquistaButton() {
 		return acquistabutton;
+	}
+	
+	public void setSuccessText(String s) {
+		successlabel.setVisible(true);
+		successlabel.setText(s);
 	}
 	
 }

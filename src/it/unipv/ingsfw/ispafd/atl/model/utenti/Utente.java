@@ -2,15 +2,15 @@ package it.unipv.ingsfw.ispafd.atl.model.utenti;
 
 import java.util.List;
 
+import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Biglietto;
+import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Tipologia;
 
 public class Utente {
 
 	private String nome, cognome, username, password;
-	private List<Abbonamento> abbonamenti; //Dora
-	
 
 	public Utente(String nome, String cognome, String username, String password) {
 		super();
@@ -38,15 +38,18 @@ public class Utente {
 	
 	//Dora 
 	
-	public void acquistaAbbonamento(Tipologia validita) {
+	public void acquistaAbbonamento(Utente utenteProprietario, TipoAbbonamento tipoabbonamento, ATLModel m) {
 		
-		Abbonamento ab= new Abbonamento(this, validita);
-		abbonamenti.add(ab);
+		Abbonamento a;
 		
-	}
-	public void acquistaBiglietto() {
-		Biglietto b = new Biglietto(this, Tipologia.BIGLIETTO_ORDINARIO);
-		abbonamenti.add(b);
+		if(tipoabbonamento.getIsAbbonamento()==true) {
+			a = new Abbonamento(utenteProprietario, tipoabbonamento);
+		} else {
+			a = new Biglietto(utenteProprietario, tipoabbonamento);
+		}
+		
+		m.addAbbonamento(a);
+		
 	}
 	
 	

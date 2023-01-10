@@ -4,9 +4,11 @@ import it.unipv.ingsfw.ispafd.atl.model.utenti.Utente;
 
 public class Biglietto extends Abbonamento{
 
-	public Biglietto(Utente utenteProprietario, Tipologia validita) {
-		super(utenteProprietario, validita);
-		
+	private long timbratura;
+	
+	public Biglietto(Utente utenteProprietario, TipoAbbonamento tipoabbonamento) {
+		super(utenteProprietario, tipoabbonamento);
+		this.timbratura = 0;
 	}
 
 }

@@ -110,6 +110,64 @@ public class BigliettiController {
 	    
 	    view.getAcquistaBigliettiView().getCombo().addActionListener(combochange);
 		
+	    
+	    ActionListener inviaacquista = new ActionListener() {
+	    	private String inputcarta, comboselecteditem;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				comboselecteditem = (String) view.getAcquistaBigliettiView().getCombo().getSelectedItem();
+				inputcarta=view.getAcquistaBigliettiView().getInputCarta().getText();
+				manageAction();
+				
+			}
+			
+			private void manageAction() {
+				
+				if(!checkForErrors()) {
+					TipoAbbonamento temp = m.getTipoAbbonamentoByNome(comboselecteditem);
+					m.getLoggedUser().acquistaAbbonamento(m.getLoggedUser(), temp, m);
+					
+					view.changeView(view.getListaBigliettiView(), m);
+					view.getListaBigliettiView().setSuccessText("Biglietto acquistato correttamente!");
+					
+				}
+				
+			}
+			
+			private boolean checkForErrors() {
+				
+				return checkForEmptyInput();
+				
+			}
+			
+			private boolean checkForEmptyInput() {
+				
+				if(view.getAcquistaBigliettiView().getCombo().getSelectedItem()=="") {
+					view.getAcquistaBigliettiView().setErrorText("Errore! Selezionare un oggetto da acquistare");
+					return true;
+				}
+				
+				if(!isNotEmpty(inputcarta)) {
+					view.getAcquistaBigliettiView().setErrorText("Errore! Inserire numero carta");
+					return true;
+				}
+				
+				return false;
+			}
+			
+			private boolean isNotEmpty(String s) {
+				if(s.length()>0) {
+					return true;	//return true if string is not empty
+				}
+				return false;
+			}
+	    	  
+	    };
+	    
+	    view.getAcquistaBigliettiView().getInviaButton().addActionListener(inviaacquista);
+	    
+	    
 	}
 
 }
