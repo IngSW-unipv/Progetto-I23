@@ -10,12 +10,41 @@ public class Abbonamento {
 	private Utente utenteProprietario;
 	private TipoAbbonamento tipoabbonamento;
 	private long data_acquisto;
+	private String id;
 	
 	public Abbonamento(Utente utenteProprietario, TipoAbbonamento tipoabbonamento) {
 		this.utenteProprietario = utenteProprietario;
 		this.tipoabbonamento = tipoabbonamento;
 		this.data_acquisto = System.currentTimeMillis();
+		this.id = createId();
 	}
 	
+	private String createId() {
+		return data_acquisto+utenteProprietario.getUsername();
+	}
+	
+	public TipoAbbonamento getTipoAbbonamento() {
+		return tipoabbonamento;
+	}
+	
+	public Utente getUtenteProprietario() {
+		return utenteProprietario;
+	}
+	
+	public long getDataAcquisto() {
+		return data_acquisto;
+	}
+	
+	public long getDataScadenza() {
+		return data_acquisto+tipoabbonamento.getDurataInSecondi()*1000;
+	}
+	
+	public boolean isExpired() {
+		if(System.currentTimeMillis()>getDataScadenza()) {
+			return true;
+		}
+		
+		return false;
+	}
 	
 }

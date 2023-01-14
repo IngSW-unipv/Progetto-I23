@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 
 import it.unipv.ingsfw.ispafd.atl.controller.MVCController;
 import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
+import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
+import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.news.News;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Impiegato;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Ospite;
@@ -34,9 +36,11 @@ public class ATLStarter {
 		//testing
 		
 		//da aggiungere poi nel db
-		m.addTipoAbbonamento("Biglietto Ordinario", false, 190, "190 minuti dalla timbratura", 1.20);
-		m.addTipoAbbonamento("Abbonamento Mensile", true, 43800, "1 mese dall'acquisto", 68.00);
-		m.addTipoAbbonamento("Abbonamento Settimanale", true, 10080, "1 settimana dall'acquisto", 20.00);
+		TipoAbbonamento mensile = new TipoAbbonamento("Abbonamento Mensile", true, 2592000, "30 giorni dall'acquisto", 68.00);
+		TipoAbbonamento ordinario = new TipoAbbonamento("Biglietto Ordinario", false, 5400, "90 minuti dalla timbratura", 1.20);
+		m.addTipoAbbonamento(ordinario);
+		m.addTipoAbbonamento(mensile);
+		m.addTipoAbbonamento(new TipoAbbonamento("Abbonamento Settimanale", true, 604800, "7 giorni dall'acquisto", 20.00));
 		
 		Responsabile r = new Responsabile("fede","spat","fedespat","aaa","hkdfjghd");
 		Utente u = new Utente("prova","abc","a","a");
@@ -47,6 +51,9 @@ public class ATLStarter {
 		m.addUtente(i);
 		
 		m.setLoggedUser(i);
+		
+		m.addAbbonamento(new Abbonamento(i,mensile));
+		m.addAbbonamento(new Abbonamento(i,ordinario));
 		
 		m.addNews(new News("Cambio fermate Stazione di Rogoredo","Abbiamo cambiato le fermate alla stazione di rogoredo: da Alessandria a Sestri Levante e da Milano a Pavia",i));
 		

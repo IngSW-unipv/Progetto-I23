@@ -4,11 +4,14 @@ import it.unipv.ingsfw.ispafd.atl.model.utenti.Utente;
 
 public class Biglietto extends Abbonamento{
 
-	private long timbratura;
+	private long datatimbratura;
 	
 	public Biglietto(Utente utenteProprietario, TipoAbbonamento tipoabbonamento) {
 		super(utenteProprietario, tipoabbonamento);
-		this.timbratura = 0;
+	}
+	
+	public long getDataTimbratura() {
+		return datatimbratura;
 	}
 
 }

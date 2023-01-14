@@ -87,8 +87,7 @@ public class ATLModel {
 			return tipoabbonamento;
 		}
 		
-		public void addTipoAbbonamento(String nome, Boolean isAbbonamento, int durataminuti, String duratastring, Double costo) {
-			TipoAbbonamento t = new TipoAbbonamento(nome,isAbbonamento,durataminuti,duratastring,costo);
+		public void addTipoAbbonamento(TipoAbbonamento t) {
 			tipoabbonamento.add(t);
 		}
 		

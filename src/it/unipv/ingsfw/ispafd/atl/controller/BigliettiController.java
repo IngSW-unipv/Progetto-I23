@@ -143,7 +143,7 @@ public class BigliettiController {
 			
 			private boolean checkForEmptyInput() {
 				
-				if(view.getAcquistaBigliettiView().getCombo().getSelectedItem()=="") {
+				if(comboselecteditem=="") {
 					view.getAcquistaBigliettiView().setErrorText("Errore! Selezionare un oggetto da acquistare");
 					return true;
 				}
