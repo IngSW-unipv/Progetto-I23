@@ -20,6 +20,7 @@ public class MVCController {
 		AutenticationController.addListeners(m, view);
 		NewsController.addListeners(m, view);
 		BigliettiController.addListeners(m, view);
+		ReclamiController.addListeners(m, view);
 		
 	}
 	

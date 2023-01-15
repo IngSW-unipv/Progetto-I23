@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.news.News;
+import it.unipv.ingsfw.ispafd.atl.model.reclami.Reclamo;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.*;
 
 public class ATLModel {
@@ -17,6 +18,7 @@ public class ATLModel {
 		private Ospite ospite;
 		private ArrayList<TipoAbbonamento> tipoabbonamento;
 		private ArrayList<Abbonamento> abbonamenti;
+		private ArrayList<Reclamo> reclami;
 		
 		private ATLModel() {
 			this.loggeduser = null;
@@ -24,6 +26,7 @@ public class ATLModel {
 			this.news = new ArrayList<News>();
 			this.tipoabbonamento = new ArrayList<TipoAbbonamento>();
 			this.abbonamenti = new ArrayList<Abbonamento>();
+			this.reclami = new ArrayList<Reclamo>();
 		}
 		
 		public static ATLModel getIstance() {
@@ -124,6 +127,10 @@ public class ATLModel {
 			
 			return atemp;
 			
+		}
+		
+		public ArrayList<Reclamo> getListaReclami(){
+			return reclami;
 		}
 	
 }

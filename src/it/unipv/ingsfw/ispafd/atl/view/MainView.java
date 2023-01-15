@@ -186,5 +186,9 @@ public class MainView extends AbstractView{
 	public JButton getBigliettiButton() {
 		return bigliettibutton;
 	}
+	
+	public JButton getReclamiButton() {
+		return reclamibutton;
+	}
 
 }

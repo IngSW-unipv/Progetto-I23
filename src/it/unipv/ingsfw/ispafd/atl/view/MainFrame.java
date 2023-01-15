@@ -10,6 +10,7 @@ import javax.swing.*;
 import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
 import it.unipv.ingsfw.ispafd.atl.view.form.LoginView;
 import it.unipv.ingsfw.ispafd.atl.view.form.PostaNewsView;
+import it.unipv.ingsfw.ispafd.atl.view.form.PostaReclamiView;
 import it.unipv.ingsfw.ispafd.atl.view.form.RegistrationDipendentiView;
 import it.unipv.ingsfw.ispafd.atl.view.form.RegistrationView;
 
@@ -29,6 +30,7 @@ public class MainFrame extends JFrame{
 	private NewsListView newslistview;
 	private ListaBigliettiView listabigliettiview;
 	private AcquistaBigliettiView acquistabigliettiview;
+	private PostaReclamiView postareclamiview;
 	
 	public MainFrame() {
 		
@@ -55,6 +57,7 @@ public class MainFrame extends JFrame{
 		newslistview = new NewsListView();
 		listabigliettiview = new ListaBigliettiView();
 		acquistabigliettiview = new AcquistaBigliettiView();
+		postareclamiview = new PostaReclamiView();
 		
 		
 		cardPanel.add(mainview, mainview.getCardPosition());
@@ -65,6 +68,7 @@ public class MainFrame extends JFrame{
 		cardPanel.add(newslistview, newslistview.getCardPosition());
 		cardPanel.add(listabigliettiview, listabigliettiview.getCardPosition());
 		cardPanel.add(acquistabigliettiview, acquistabigliettiview.getCardPosition());
+		cardPanel.add(postareclamiview, postareclamiview.getCardPosition());
 		
 		
 		c1.show(cardPanel, mainview.getCardPosition());
@@ -118,6 +122,10 @@ public class MainFrame extends JFrame{
 	
 	public AcquistaBigliettiView getAcquistaBigliettiView() {
 		return acquistabigliettiview;
+	}
+	
+	public PostaReclamiView getPostaReclamiView() {
+		return postareclamiview;
 	}
 	
 }
