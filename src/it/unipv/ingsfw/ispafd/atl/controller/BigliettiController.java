@@ -135,7 +135,7 @@ public class BigliettiController {
 					m.getLoggedUser().acquistaAbbonamento(m.getLoggedUser(), temp, m);
 					
 					view.changeView(view.getListaBigliettiView(), m);
-					view.getListaBigliettiView().setSuccessText("Biglietto acquistato correttamente!");
+					view.getListaBigliettiView().setSuccessText("Titolo di viaggio acquistato correttamente!");
 					
 				}
 				
