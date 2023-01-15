@@ -7,6 +7,7 @@ import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Biglietto;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Tipologia;
+import it.unipv.ingsfw.ispafd.atl.model.reclami.Reclamo;
 
 public class Utente {
 
@@ -50,6 +51,11 @@ public class Utente {
 		
 		m.addAbbonamento(a);
 		
+	}
+	
+	public void postaReclamo(String titolo, String testo, ATLModel m) {
+		Reclamo rtemp = new Reclamo(titolo,testo,this);
+		m.addReclamo(rtemp);
 	}
 	
 	

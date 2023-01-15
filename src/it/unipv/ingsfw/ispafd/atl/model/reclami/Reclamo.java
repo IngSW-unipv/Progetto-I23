@@ -9,7 +9,7 @@ public class Reclamo {
 	private Utente utente;
 	private Impiegato impiegato;
 	
-	public Reclamo(String titolo, String testo, String testorisposta, Utente utente, Impiegato impiegato) {
+	public Reclamo(String titolo, String testo, Utente utente) {
 		this.titolo = titolo;
 		this.testo = testo;
 		this.utente = utente;

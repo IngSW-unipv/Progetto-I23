@@ -132,5 +132,9 @@ public class ATLModel {
 		public ArrayList<Reclamo> getListaReclami(){
 			return reclami;
 		}
+		
+		public void addReclamo(Reclamo r) {
+			reclami.add(r);
+		}
 	
 }
