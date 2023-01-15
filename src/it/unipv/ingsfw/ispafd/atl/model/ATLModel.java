@@ -111,5 +111,19 @@ public class ATLModel {
 		public void addAbbonamento(Abbonamento a) {
 			abbonamenti.add(a);
 		}
+		
+		public Abbonamento getAbbonamentoById(String s) {
+			
+			Abbonamento atemp=null;
+			
+			for(Abbonamento a: abbonamenti) {
+				if(a.getId().equals(s)) {
+					atemp=a;
+				}
+			}
+			
+			return atemp;
+			
+		}
 	
 }

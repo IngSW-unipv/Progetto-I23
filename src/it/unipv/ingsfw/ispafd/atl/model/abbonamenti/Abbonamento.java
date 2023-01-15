@@ -8,7 +8,7 @@ import it.unipv.ingsfw.ispafd.atl.model.utenti.Utente;
 public class Abbonamento {
 	
 	private Utente utenteProprietario;
-	private TipoAbbonamento tipoabbonamento;
+	protected TipoAbbonamento tipoabbonamento;
 	private long data_acquisto;
 	private String id;
 	
@@ -21,6 +21,10 @@ public class Abbonamento {
 	
 	private String createId() {
 		return data_acquisto+utenteProprietario.getUsername();
+	}
+	
+	public String getId() {
+		return id;
 	}
 	
 	public TipoAbbonamento getTipoAbbonamento() {
@@ -47,4 +51,11 @@ public class Abbonamento {
 		return false;
 	}
 	
+	public void timbra() {
+		//nothing
+	}
+	
+	public long getDataTimbratura() {
+		return -1;
+	}
 }

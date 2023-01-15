@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 import it.unipv.ingsfw.ispafd.atl.controller.MVCController;
 import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
+import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Biglietto;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.news.News;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Impiegato;
@@ -38,6 +39,7 @@ public class ATLStarter {
 		//da aggiungere poi nel db
 		TipoAbbonamento mensile = new TipoAbbonamento("Abbonamento Mensile", true, 2592000, "30 giorni dall'acquisto", 68.00);
 		TipoAbbonamento ordinario = new TipoAbbonamento("Biglietto Ordinario", false, 5400, "90 minuti dalla timbratura", 1.20);
+		
 		m.addTipoAbbonamento(ordinario);
 		m.addTipoAbbonamento(mensile);
 		m.addTipoAbbonamento(new TipoAbbonamento("Abbonamento Settimanale", true, 604800, "7 giorni dall'acquisto", 20.00));
@@ -53,7 +55,7 @@ public class ATLStarter {
 		m.setLoggedUser(i);
 		
 		m.addAbbonamento(new Abbonamento(i,mensile));
-		m.addAbbonamento(new Abbonamento(i,ordinario));
+		m.addAbbonamento(new Biglietto(i,ordinario));
 		
 		m.addNews(new News("Cambio fermate Stazione di Rogoredo","Abbiamo cambiato le fermate alla stazione di rogoredo: da Alessandria a Sestri Levante e da Milano a Pavia",i));
 		

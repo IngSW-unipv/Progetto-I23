@@ -4,9 +4,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
+import javax.swing.JComponent;
+
 import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
+import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
+import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Biglietto;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Tipologia;
+import it.unipv.ingsfw.ispafd.atl.view.ListaBigliettiView;
 import it.unipv.ingsfw.ispafd.atl.view.MainFrame;
 
 public class BigliettiController {
@@ -168,6 +174,37 @@ public class BigliettiController {
 	    view.getAcquistaBigliettiView().getInviaButton().addActionListener(inviaacquista);
 	    
 	    
+	}
+	
+	public static void updateTimbraListeners(ATLModel m, ArrayList<JButton> pulsanti, ListaBigliettiView v) {
+		
+		ActionListener actiontimbra = new ActionListener() {
+			
+			private String id;
+			private Abbonamento b;
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				this.id = (String) ((JComponent) e.getSource()).getClientProperty("id");
+				this.b = m.getAbbonamentoById(this.id);
+				manageAction();
+				
+			}
+			
+			private void manageAction() {
+				
+				b.timbra();
+				v.updateBigliettiStatus(m);
+				
+			}
+	    	  
+	    };
+	    
+	    for(JButton b: pulsanti) {
+	    	b.addActionListener(actiontimbra);
+	    }
+		
 	}
 
 }
