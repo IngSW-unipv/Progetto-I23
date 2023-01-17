@@ -48,6 +48,7 @@ public class ReclamiController {
 	    };
 	    
 	    view.getPostaReclamiView().getIndietrobutton().addActionListener(indietropageswitch);
+	    view.getListaReclamiView().getIndietroButton().addActionListener(indietropageswitch);
 	    
 	    ActionListener postreclamoenter = new ActionListener() {
 	    	private String titolo, testo;
@@ -108,6 +109,23 @@ public class ReclamiController {
 	    };
 	    
 	    view.getPostaReclamiView().getInviabutton().addActionListener(postreclamoenter);
+	    
+	    ActionListener listareclamipageswitch = new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				manageAction();
+				
+			}
+			
+			private void manageAction() {
+				view.changeView(view.getListaReclamiView(),m);
+				
+			}
+	    	  
+	    };
+	    
+	    view.getMainview().getListaReclamiButton().addActionListener(listareclamipageswitch);
 		
 	}
 

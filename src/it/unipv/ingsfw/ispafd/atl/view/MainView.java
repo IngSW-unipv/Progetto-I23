@@ -28,6 +28,7 @@ public class MainView extends AbstractView{
 	private JButton bigliettibutton;
 	private JButton registradipendentibutton;
 	private JButton postanewsbutton;
+	private JButton listareclamibutton;
 	
 	private JLabel successlabel;
 	
@@ -73,7 +74,7 @@ public class MainView extends AbstractView{
 		
 		JPanel buttonspanel = new JPanel(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
-		c.insets = new Insets(2, 2, 2, 2);
+		c.insets = new Insets(6, 6, 6, 6);
 		
 		c.gridx = 0;
 		c.gridy = 0;
@@ -98,6 +99,10 @@ public class MainView extends AbstractView{
 		buttonspanel.add(postanewsbutton,c);
 		
 		c.gridx = 2;
+		listareclamibutton = new JButton("Lista Reclami");
+		buttonspanel.add(listareclamibutton,c);
+		
+		c.gridx = 1;
 		c.gridy = 3;
 		logoutbutton = new JButton("Logout");
 		buttonspanel.add(logoutbutton,c);
@@ -111,6 +116,7 @@ public class MainView extends AbstractView{
 		logoutbutton.setVisible(false);
 		registradipendentibutton.setVisible(false);
 		postanewsbutton.setVisible(false);
+		listareclamibutton.setVisible(false);
 		
 		
 	}
@@ -122,6 +128,7 @@ public class MainView extends AbstractView{
 			reclamibutton.setVisible(true);
 			bigliettibutton.setVisible(true);
 			logoutbutton.setVisible(true);
+			listareclamibutton.setVisible(true);
 			
 			if(m.getLoggedUser().isResponsabile()) {
 				registradipendentibutton.setVisible(true);
@@ -139,6 +146,7 @@ public class MainView extends AbstractView{
 			logoutbutton.setVisible(false);
 			registradipendentibutton.setVisible(false);
 			postanewsbutton.setVisible(false);
+			listareclamibutton.setVisible(false);
 			
 			registrationbutton.setVisible(true);
 			loginbutton.setVisible(true);
@@ -189,6 +197,10 @@ public class MainView extends AbstractView{
 	
 	public JButton getReclamiButton() {
 		return reclamibutton;
+	}
+	
+	public JButton getListaReclamiButton() {
+		return listareclamibutton;
 	}
 
 }

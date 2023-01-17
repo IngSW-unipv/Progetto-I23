@@ -31,6 +31,7 @@ public class MainFrame extends JFrame{
 	private ListaBigliettiView listabigliettiview;
 	private AcquistaBigliettiView acquistabigliettiview;
 	private PostaReclamiView postareclamiview;
+	private ListaReclamiView listareclamiview;
 	
 	public MainFrame() {
 		
@@ -58,7 +59,7 @@ public class MainFrame extends JFrame{
 		listabigliettiview = new ListaBigliettiView();
 		acquistabigliettiview = new AcquistaBigliettiView();
 		postareclamiview = new PostaReclamiView();
-		
+		listareclamiview = new ListaReclamiView();
 		
 		cardPanel.add(mainview, mainview.getCardPosition());
 		cardPanel.add(registrationview, registrationview.getCardPosition());
@@ -69,7 +70,7 @@ public class MainFrame extends JFrame{
 		cardPanel.add(listabigliettiview, listabigliettiview.getCardPosition());
 		cardPanel.add(acquistabigliettiview, acquistabigliettiview.getCardPosition());
 		cardPanel.add(postareclamiview, postareclamiview.getCardPosition());
-		
+		cardPanel.add(listareclamiview, listareclamiview.getCardPosition());
 		
 		c1.show(cardPanel, mainview.getCardPosition());
 		//mainpanel.setVisible(true);
@@ -126,6 +127,10 @@ public class MainFrame extends JFrame{
 	
 	public PostaReclamiView getPostaReclamiView() {
 		return postareclamiview;
+	}
+	
+	public ListaReclamiView getListaReclamiView() {
+		return listareclamiview;
 	}
 	
 }
