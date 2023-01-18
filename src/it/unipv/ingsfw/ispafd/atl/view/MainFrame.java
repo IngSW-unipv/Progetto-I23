@@ -42,6 +42,7 @@ public class MainFrame extends JFrame{
 		
 		ImageIcon img = new ImageIcon("resources/icon.png");
 		this.setIconImage(img.getImage());
+		setResizable(false);
 		
 		this.initComponents();
 		

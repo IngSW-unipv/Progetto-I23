@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
@@ -35,7 +36,7 @@ public class MainView extends AbstractView{
 	public MainView() {
 		
 		super();
-		
+
 		this.setLayout(new BorderLayout());
 		
 		JPanel loginpanel = new JPanel();
