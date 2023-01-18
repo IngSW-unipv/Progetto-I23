@@ -40,6 +40,9 @@ public class MainFrame extends JFrame{
 		this.setLocationRelativeTo(null);
 		this.setTitle("ATL");
 		
+		ImageIcon img = new ImageIcon("resources/icon.png");
+		this.setIconImage(img.getImage());
+		
 		this.initComponents();
 		
 	}
