@@ -16,11 +16,13 @@ public class ATLModel {
 		private ArrayList<Utente> utenti;
 		private ArrayList<News> news;
 		private Ospite ospite;
+		private String idactualreclamo;
 		private ArrayList<TipoAbbonamento> tipoabbonamento;
 		private ArrayList<Abbonamento> abbonamenti;
 		private ArrayList<Reclamo> reclami;
 		
 		private ATLModel() {
+			this.idactualreclamo = null;
 			this.loggeduser = null;
 			this.utenti = new ArrayList<Utente>();
 			this.news = new ArrayList<News>();
@@ -135,6 +137,28 @@ public class ATLModel {
 		
 		public void addReclamo(Reclamo r) {
 			reclami.add(r);
+		}
+		
+		public String getIdActualReclamo() {
+			return idactualreclamo;
+		}
+		
+		public void setIdActualReclamo(String s) {
+			this.idactualreclamo = s;
+		}
+		
+		public Reclamo getReclamoById(String s) {
+			
+			Reclamo rtemp=null;
+			
+			for(Reclamo r: reclami) {
+				if(r.getId().equals(s)) {
+					rtemp=r;
+				}
+			}
+			
+			return rtemp;
+			
 		}
 	
 }

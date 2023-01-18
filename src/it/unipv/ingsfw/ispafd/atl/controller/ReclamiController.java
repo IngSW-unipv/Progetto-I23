@@ -2,18 +2,27 @@ package it.unipv.ingsfw.ispafd.atl.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JComponent;
 
 import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
+import it.unipv.ingsfw.ispafd.atl.model.reclami.Reclamo;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Impiegato;
 import it.unipv.ingsfw.ispafd.atl.view.MainFrame;
 
 public class ReclamiController {
 	
+	private static MainFrame view;
+	
 	public ReclamiController() {
 		//nothing
 	}
 	
-	public static void addListeners(ATLModel m, MainFrame view) {
+	public static void addListeners(ATLModel m, MainFrame v) {
+		
+		view = v;
 		
 		ActionListener postareclamipageswitch = new ActionListener() {
 
@@ -126,6 +135,61 @@ public class ReclamiController {
 	    };
 	    
 	    view.getMainview().getListaReclamiButton().addActionListener(listareclamipageswitch);
+	    view.getSingoloReclamoView().getIndietroButton().addActionListener(listareclamipageswitch);
+	    
+	    ActionListener inviarispostaaction = new ActionListener() {
+
+	    	private String id,testor;
+	    	private Reclamo rtemp;
+	    	
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				this.id = (String) ((JComponent) e.getSource()).getClientProperty("id");
+				this.rtemp = m.getReclamoById(id);
+				this.testor = view.getSingoloReclamoView().getInputRisposta().getText();
+				manageAction();
+				
+			}
+			
+			private void manageAction() {
+			
+				rtemp.setRisposta(testor);
+				view.changeView(view.getListaReclamiView(), m);
+				view.getListaReclamiView().setSuccessText("Risposta inviata correttamente!");
+				
+			}
+	    	  
+	    };
+	    
+	    view.getSingoloReclamoView().getInviaRispostaButton().addActionListener(inviarispostaaction);
+	    
+		
+	}
+	
+	public static void updateApriListeners(ATLModel m, ArrayList<JButton> listapulsanti) {
+		
+		ActionListener singoloreclamopageswitch = new ActionListener() {
+			
+			private String id;
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				this.id = (String) ((JComponent) e.getSource()).getClientProperty("id");
+				manageAction();
+				
+			}
+			
+			private void manageAction() {
+				m.setIdActualReclamo(id);
+				view.changeView(view.getSingoloReclamoView(),m);
+				
+			}
+	    	  
+	    };
+	    
+	    for(JButton btemp: listapulsanti) {
+	    	btemp.addActionListener(singoloreclamopageswitch);
+	    }
 		
 	}
 

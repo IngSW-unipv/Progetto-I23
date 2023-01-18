@@ -22,10 +22,29 @@ public class Reclamo {
 		return utente.getUsername()+System.currentTimeMillis();
 	}
 	
-	private String getId() {
+	public String getId() {
 		return id;
 	}
 	
+	public Utente getUtente() {
+		return utente;
+	}
+	
+	public String getTitolo() {
+		return titolo;
+	}
+	
+	public String getTesto() {
+		return testo;
+	}
+	
+	public String getTestoRisposta() {
+		return testorisposta;
+	}
+	
+	public void setRisposta(String s) {
+		this.testorisposta = s;
+	}
 	
 	
 }

@@ -8,6 +8,7 @@ import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Biglietto;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.news.News;
+import it.unipv.ingsfw.ispafd.atl.model.reclami.Reclamo;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Impiegato;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Ospite;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Responsabile;
@@ -67,6 +68,8 @@ public class ATLStarter {
 		
 		m.addNews(new News("News di Test 3","Questa è una news solo per testing dello scrollpane",i));
 		
+		Reclamo rec = new Reclamo("Problemi della linea rossa","buonasera, io volevo segnalare la totale negligenza che accombe nella linea rossa della metripolitana. E' completamente sporca e continua ad arrivare in ritardo. Per questo richiedo un intervento immediato. Grazie.",i);
+		m.addReclamo(rec);
 		//fine testing
 		
 		
