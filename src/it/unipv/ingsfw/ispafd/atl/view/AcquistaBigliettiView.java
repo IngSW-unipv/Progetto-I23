@@ -12,7 +12,6 @@ import javax.swing.*;
 
 import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
-import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Tipologia;
 
 public class AcquistaBigliettiView extends AbstractView{
 	

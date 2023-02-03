@@ -11,7 +11,6 @@ import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Biglietto;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
-import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Tipologia;
 import it.unipv.ingsfw.ispafd.atl.view.ListaBigliettiView;
 import it.unipv.ingsfw.ispafd.atl.view.MainFrame;
 
