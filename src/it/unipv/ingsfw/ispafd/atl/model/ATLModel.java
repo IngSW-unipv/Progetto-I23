@@ -2,6 +2,7 @@ package it.unipv.ingsfw.ispafd.atl.model;
 
 import java.util.ArrayList;
 
+import it.unipv.ingsfw.ispafd.atl.database.UtentiDAO;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.news.News;
@@ -21,6 +22,8 @@ public class ATLModel {
 		private ArrayList<Abbonamento> abbonamenti;
 		private ArrayList<Reclamo> reclami;
 		
+		private UtentiDAO utentidao;
+		
 		private ATLModel() {
 			this.idactualreclamo = null;
 			this.loggeduser = null;
@@ -29,6 +32,9 @@ public class ATLModel {
 			this.tipoabbonamento = new ArrayList<TipoAbbonamento>();
 			this.abbonamenti = new ArrayList<Abbonamento>();
 			this.reclami = new ArrayList<Reclamo>();
+			
+			utentidao = new UtentiDAO();
+			utentidao.selectAll();
 		}
 		
 		public static ATLModel getIstance() {
