@@ -8,7 +8,5 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="resources"/>
 	<classpathentry kind="src" path="project documentation"/>
-	<classpathentry kind="src" path="lib"/>
-	<classpathentry kind="lib" path="C:/Users/Utente/Desktop/projectfolder/Progetto-I23/lib/mysql-connector-java-8.0.19.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
