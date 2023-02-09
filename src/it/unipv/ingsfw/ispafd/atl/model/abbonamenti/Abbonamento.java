@@ -58,10 +58,6 @@ public class Abbonamento {
 		return false;
 	}
 	
-	public void timbra() {
-		//nothing
-	}
-	
 	public long getDataTimbratura() {
 		return -1;
 	}

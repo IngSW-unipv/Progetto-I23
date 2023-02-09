@@ -97,7 +97,6 @@ public class ReclamiDAO{
 			st1.setString(1, risposta);
 			st1.setString(2, username);
 			st1.setString(3, id);
-			System.out.println(st1);
 			st1.executeUpdate();
 
 		}catch (Exception e){

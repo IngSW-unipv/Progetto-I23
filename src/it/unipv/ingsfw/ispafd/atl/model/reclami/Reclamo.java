@@ -3,7 +3,7 @@ package it.unipv.ingsfw.ispafd.atl.model.reclami;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Impiegato;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Utente;
 
-public class Reclamo {
+public class Reclamo implements Replicabile{
 
 	private String titolo, testo, testorisposta, id;
 	private Utente utente;

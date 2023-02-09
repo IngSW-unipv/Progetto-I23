@@ -2,7 +2,7 @@ package it.unipv.ingsfw.ispafd.atl.model.abbonamenti;
 
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Utente;
 
-public class Biglietto extends Abbonamento{
+public class Biglietto extends Abbonamento implements Timbrabile{
 
 	private long datatimbratura;
 	
@@ -26,13 +26,8 @@ public class Biglietto extends Abbonamento{
 		return datatimbratura;
 	}
 	
-	@Override
 	public void timbra() {
 		datatimbratura = System.currentTimeMillis();
-	}
-	
-	public void setDataTimbratura(Long d) {
-		datatimbratura = d;
 	}
 	
 	public long getDataScadenza() {
