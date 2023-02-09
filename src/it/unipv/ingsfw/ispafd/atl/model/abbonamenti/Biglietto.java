@@ -21,6 +21,10 @@ public class Biglietto extends Abbonamento{
 		datatimbratura = System.currentTimeMillis();
 	}
 	
+	public void setDataTimbratura(Long d) {
+		datatimbratura = d;
+	}
+	
 	public long getDataScadenza() {
 		return datatimbratura+tipoabbonamento.getDurataInSecondi()*1000;
 	}

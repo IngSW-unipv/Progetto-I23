@@ -38,13 +38,7 @@ public class ATLStarter {
 		//testing
 		
 		//da aggiungere poi nel db
-		TipoAbbonamento mensile = new TipoAbbonamento("Abbonamento Mensile", true, 2592000, "30 giorni dall'acquisto", 68.00);
-		TipoAbbonamento ordinario = new TipoAbbonamento("Biglietto Ordinario", false, 5400, "90 minuti dalla timbratura", 1.20);
-		
-		m.addTipoAbbonamento(ordinario);
-		m.addTipoAbbonamento(mensile);
-		m.addTipoAbbonamento(new TipoAbbonamento("Abbonamento Settimanale", true, 604800, "7 giorni dall'acquisto", 20.00));
-		
+
 		Responsabile r = new Responsabile("fede","spat","fedespat","aaa","hkdfjghd");
 		Utente u = new Utente("prova","abc","a","a");
 		Impiegato i = new Impiegato("paolo","luc","lucche","aaa","fsgr");
@@ -53,10 +47,8 @@ public class ATLStarter {
 		m.addUtente(u);
 		m.addUtente(i);
 		
-		m.setLoggedUser(i);
+		m.setLoggedUser(m.getUtenteByUsername("giannino"));
 		
-		m.addAbbonamento(new Abbonamento(i,mensile));
-		m.addAbbonamento(new Biglietto(i,ordinario));
 		
 		m.addNews(new News("Cambio fermate Stazione di Rogoredo","Abbiamo cambiato le fermate alla stazione di rogoredo: da Alessandria a Sestri Levante e da Milano a Pavia",i));
 		

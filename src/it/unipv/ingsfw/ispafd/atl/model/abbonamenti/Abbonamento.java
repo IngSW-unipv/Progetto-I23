@@ -23,6 +23,11 @@ public class Abbonamento {
 		return data_acquisto+utenteProprietario.getUsername();
 	}
 	
+	public void setData_acquisto(long d) {
+		data_acquisto=d;
+		id=createId();
+	}
+	
 	public String getId() {
 		return id;
 	}

@@ -2,7 +2,7 @@ package it.unipv.ingsfw.ispafd.atl.model;
 
 import java.util.ArrayList;
 
-import it.unipv.ingsfw.ispafd.atl.database.UtentiDAO;
+import it.unipv.ingsfw.ispafd.atl.database.*;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.news.News;
@@ -23,6 +23,8 @@ public class ATLModel {
 		private ArrayList<Reclamo> reclami;
 		
 		private UtentiDAO utentidao;
+		private TipoAbbonamentiDAO tipoabbonamentidao;
+		private AbbonamentiDAO abbonamentidao;
 		
 		private ATLModel() {
 			this.idactualreclamo = null;
@@ -34,7 +36,12 @@ public class ATLModel {
 			this.reclami = new ArrayList<Reclamo>();
 			
 			utentidao = new UtentiDAO();
-			utentidao.selectAll();
+			tipoabbonamentidao = new TipoAbbonamentiDAO();
+			abbonamentidao = new AbbonamentiDAO();
+			
+			popolaUtenti();
+			popolaTipoAbbonamenti();
+			popolaAbbonamenti();
 		}
 		
 		public static ATLModel getIstance() {
@@ -51,8 +58,49 @@ public class ATLModel {
 			utenti.add(u);
 		}
 		
+		public void popolaUtenti() {
+			ArrayList<Utente> temp=utentidao.selectUtenti();
+			
+			for(Utente u: temp) {
+				addUtente(u);
+			}
+			
+		}
+		
+		public void popolaTipoAbbonamenti() {
+			ArrayList<TipoAbbonamento> temp=tipoabbonamentidao.selectTipoAbbonamenti();
+			
+			for(TipoAbbonamento u: temp) {
+				addTipoAbbonamento(u);
+			}
+			
+		}
+		
+		public void popolaAbbonamenti() {
+			ArrayList<Abbonamento> temp=abbonamentidao.selectAbbonamenti(this);
+			
+			for(Abbonamento u: temp) {
+				addAbbonamento(u);
+			}
+			
+		}
+		
 		public ArrayList<Utente> getUtentiArray(){
 			return utenti;
+		}
+		
+		public Utente getUtenteByUsername(String s) {
+			
+			Utente uret=null;
+			
+			for(Utente u: utenti) {
+				if(u.getUsername().equals(s)) {
+					uret=u;
+				}
+			}
+			
+			return uret;
+			
 		}
 		
 		public void setLoggedUser(Utente u) {
