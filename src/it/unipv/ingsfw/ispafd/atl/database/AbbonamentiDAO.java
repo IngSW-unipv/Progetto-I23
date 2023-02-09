@@ -45,16 +45,16 @@ public class AbbonamentiDAO{
 				Utente u = m.getUtenteByUsername(rs1.getString(1));
 				
 				if(t.getIsAbbonamento()==true) {
-					f = new Abbonamento(u,t);
+					f = new Abbonamento(u,t,rs1.getLong(2));
 				}else {
-					f = new Biglietto(u,t);
+					
 					Long d = rs1.getLong(5);
 					if(d!=null) {
-						((Biglietto) f).setDataTimbratura(d);
+						f = new Biglietto(u,t,rs1.getLong(2),d);
+					}else {
+						f = new Biglietto(u,t,rs1.getLong(2));
 					}
 				}
-				
-				f.setData_acquisto(rs1.getLong(2));
 				
 				result.add(f);
 			}

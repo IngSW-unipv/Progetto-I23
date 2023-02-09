@@ -18,6 +18,15 @@ public class Reclamo {
 		this.impiegato = null;
 	}
 	
+	public Reclamo(String titolo, String testo, Utente utente, String id, String testorisposta, Impiegato impiegato) {
+		this.titolo = titolo;
+		this.testo = testo;
+		this.utente = utente;
+		this.id = id;
+		this.testorisposta = testorisposta;
+		this.impiegato = impiegato;
+	}
+	
 	private String creaId() {
 		return utente.getUsername()+System.currentTimeMillis();
 	}
@@ -42,8 +51,9 @@ public class Reclamo {
 		return testorisposta;
 	}
 	
-	public void setRisposta(String s) {
+	public void setRisposta(String s, Impiegato i) {
 		this.testorisposta = s;
+		this.impiegato = i;
 	}
 	
 	

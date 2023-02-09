@@ -52,7 +52,11 @@ public class ListaBigliettiView extends AbstractView{
 		
 		indietrobutton = new JButton("← Indietro");
 		JPanel downbuttonpanel = new JPanel(new BorderLayout());
+		JLabel puntolabel = new JLabel("gian");
+		puntolabel.setForeground(Color.BLUE);
+		puntolabel.setFont(new Font("", Font.PLAIN, 4));
 		downbuttonpanel.add(indietrobutton, BorderLayout.WEST);
+		downbuttonpanel.add(puntolabel, BorderLayout.EAST);
 		
 		centerpanel = new JPanel(new GridBagLayout());
 		JScrollPane scrollFrame = new JScrollPane(centerpanel);

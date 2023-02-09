@@ -47,7 +47,7 @@ public class ATLStarter {
 		m.addUtente(u);
 		m.addUtente(i);
 		
-		m.setLoggedUser(m.getUtenteByUsername("giannino"));
+		m.setLoggedUser(m.getUtenteByUsername("gian"));
 		
 		
 		m.addNews(new News("Cambio fermate Stazione di Rogoredo","Abbiamo cambiato le fermate alla stazione di rogoredo: da Alessandria a Sestri Levante e da Milano a Pavia",i));

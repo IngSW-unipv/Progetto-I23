@@ -19,13 +19,15 @@ public class Abbonamento {
 		this.id = createId();
 	}
 	
-	private String createId() {
-		return data_acquisto+utenteProprietario.getUsername();
+	public Abbonamento(Utente utenteProprietario, TipoAbbonamento tipoabbonamento, long data_acquisto) {
+		this.utenteProprietario = utenteProprietario;
+		this.tipoabbonamento = tipoabbonamento;
+		this.data_acquisto = data_acquisto;
+		this.id = createId();
 	}
 	
-	public void setData_acquisto(long d) {
-		data_acquisto=d;
-		id=createId();
+	private String createId() {
+		return data_acquisto+utenteProprietario.getUsername();
 	}
 	
 	public String getId() {

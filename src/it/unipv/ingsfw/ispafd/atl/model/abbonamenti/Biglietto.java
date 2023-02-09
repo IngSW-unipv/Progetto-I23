@@ -11,6 +11,16 @@ public class Biglietto extends Abbonamento{
 		this.datatimbratura = 0;
 	}
 	
+	public Biglietto(Utente utenteProprietario, TipoAbbonamento tipoabbonamento, long data_acquisto) {
+		super(utenteProprietario, tipoabbonamento, data_acquisto);
+		this.datatimbratura = 0;
+	}
+	
+	public Biglietto(Utente utenteProprietario, TipoAbbonamento tipoabbonamento, long data_acquisto, long datatimbratura) {
+		super(utenteProprietario, tipoabbonamento, data_acquisto);
+		this.datatimbratura = datatimbratura;
+	}
+	
 	@Override
 	public long getDataTimbratura() {
 		return datatimbratura;

@@ -16,6 +16,15 @@ public class News {
 
 	 }
 	 
+	 public News(String titolo, String testo, Impiegato autore, String id) {
+		 
+		 this.titolo=titolo;
+		 this.testo=testo;
+		 this.autore=autore;
+		 this.id=id;
+
+	 }
+	 
 	 private String createId() {
 		 return this.autore.getUsername()+System.currentTimeMillis();
 	 }

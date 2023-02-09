@@ -25,6 +25,8 @@ public class ATLModel {
 		private UtentiDAO utentidao;
 		private TipoAbbonamentiDAO tipoabbonamentidao;
 		private AbbonamentiDAO abbonamentidao;
+		private NewsDAO newsdao;
+		private ReclamiDAO reclamidao;
 		
 		private ATLModel() {
 			this.idactualreclamo = null;
@@ -38,10 +40,14 @@ public class ATLModel {
 			utentidao = new UtentiDAO();
 			tipoabbonamentidao = new TipoAbbonamentiDAO();
 			abbonamentidao = new AbbonamentiDAO();
+			newsdao = new NewsDAO();
+			reclamidao = new ReclamiDAO();
 			
 			popolaUtenti();
 			popolaTipoAbbonamenti();
 			popolaAbbonamenti();
+			popolaNews();
+			popolaReclami();
 		}
 		
 		public static ATLModel getIstance() {
@@ -81,6 +87,24 @@ public class ATLModel {
 			
 			for(Abbonamento u: temp) {
 				addAbbonamento(u);
+			}
+			
+		}
+		
+		public void popolaNews() {
+			ArrayList<News> temp=newsdao.selectNews(this);
+			
+			for(News u: temp) {
+				addNews(u);
+			}
+			
+		}
+		
+		public void popolaReclami() {
+			ArrayList<Reclamo> temp=reclamidao.selectReclami(this);
+			
+			for(Reclamo u: temp) {
+				addReclamo(u);
 			}
 			
 		}
