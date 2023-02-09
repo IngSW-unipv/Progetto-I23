@@ -24,6 +24,14 @@ public class Utente {
 		return username;
 	}
 	
+	public String getNome() {
+		return nome;
+	}
+	
+	public String getCognome() {
+		return cognome;
+	}
+	
 	public String getPassword() {
 		return password;
 	}

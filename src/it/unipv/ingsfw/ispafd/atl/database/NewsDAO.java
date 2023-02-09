@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
 import it.unipv.ingsfw.ispafd.atl.model.news.News;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Impiegato;
+import it.unipv.ingsfw.ispafd.atl.model.utenti.Utente;
 
 public class NewsDAO{
 
@@ -49,6 +50,35 @@ public class NewsDAO{
 
 		DBConnection.closeConnection(conn);
 		return result;
+	}
+	
+	public boolean insertNews(News f) {
+
+		conn=DBConnection.startConnection(conn,schema);
+		PreparedStatement st1;
+		
+		boolean esito=true;
+
+		try
+		{
+			
+			String query="INSERT INTO news (titolo,testo,id,autore) VALUES(?,?,?,?)";
+			st1 = conn.prepareStatement(query);
+			st1.setString(1, f.getTitolo());
+			st1.setString(2,f.getTesto());
+			st1.setString(3, f.getId());
+			st1.setString(4,f.getAutore().getUsername());
+			
+			st1.executeUpdate();
+
+		}catch (Exception e){
+			e.printStackTrace();
+			esito=false;
+		}
+
+		DBConnection.closeConnection(conn);
+		return esito;
+
 	}
 	
 }

@@ -10,6 +10,7 @@ import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Biglietto;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
+import it.unipv.ingsfw.ispafd.atl.model.news.News;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Utente;
 
 public class AbbonamentiDAO{
@@ -62,6 +63,62 @@ public class AbbonamentiDAO{
 
 		DBConnection.closeConnection(conn);
 		return result;
+	}
+	
+	public boolean insertAbbonamento(Abbonamento f) {
+
+		conn=DBConnection.startConnection(conn,schema);
+		PreparedStatement st1;
+		
+		boolean esito=true;
+
+		try
+		{
+			
+			String query="INSERT INTO abbonamento (utente,data_acquisto,id,tipoabbonamento) VALUES(?,?,?,?)";
+			st1 = conn.prepareStatement(query);
+			st1.setString(1, f.getUtenteProprietario().getUsername());
+			st1.setLong(2,f.getDataAcquisto());
+			st1.setString(3, f.getId());
+			st1.setString(4,f.getTipoAbbonamento().getNome());
+			
+			st1.executeUpdate();
+
+		}catch (Exception e){
+			e.printStackTrace();
+			esito=false;
+		}
+
+		DBConnection.closeConnection(conn);
+		return esito;
+
+	}
+	
+	public boolean updateTimbratura(String id, long datatimbratura) {
+
+		conn=DBConnection.startConnection(conn,schema);
+		PreparedStatement st1;
+		
+		boolean esito=true;
+
+		try
+		{
+			
+			String query="UPDATE abbonamento SET datatimbratura=? WHERE id=?";
+			st1 = conn.prepareStatement(query);
+			st1.setLong(1, datatimbratura);
+			st1.setString(2, id);
+			
+			st1.executeUpdate();
+
+		}catch (Exception e){
+			e.printStackTrace();
+			esito=false;
+		}
+
+		DBConnection.closeConnection(conn);
+		return esito;
+
 	}
 	
 }

@@ -22,6 +22,10 @@ public class Impiegato extends Utente{
 		return false;
 	}
 	
+	public String getCf() {
+		return cf;
+	}
+	
 	public void postaNews(String titolo, String testo, ATLModel m) {
 		News ntemp = new News(titolo,testo,this);
 		m.addNews(ntemp);

@@ -76,4 +76,47 @@ public class UtentiDAO{
 		return result;
 	}
 	
+	public boolean insertUtente(Utente f) {
+
+		conn=DBConnection.startConnection(conn,schema);
+		PreparedStatement st1;
+		
+		boolean esito=true;
+
+		try
+		{
+			String query;
+			
+			if(f.isResponsabile()) {
+				query="INSERT INTO utente (nome,cognome,username,password,cf,isresponsabile) VALUES(?,?,?,?,?,?)";
+				st1 = conn.prepareStatement(query);
+				st1.setString(5, (((Impiegato) f).getCf()));
+				st1.setInt(6, 1);
+			}else if(f.isDipendente()) {
+				query="INSERT INTO utente (nome,cognome,username,password,cf,isresponsabile) VALUES(?,?,?,?,?,?)";
+				st1 = conn.prepareStatement(query);
+				st1.setString(5, (((Impiegato) f).getCf()));
+				st1.setInt(6, 0);
+			}else {
+				query="INSERT INTO utente (nome,cognome,username,password) VALUES(?,?,?,?)";
+				st1 = conn.prepareStatement(query);
+			}
+			
+			st1.setString(1, f.getNome());
+			st1.setString(2,f.getCognome());
+			st1.setString(3, f.getUsername());
+			st1.setString(4,f.getPassword());
+			
+			st1.executeUpdate();
+
+		}catch (Exception e){
+			e.printStackTrace();
+			esito=false;
+		}
+
+		DBConnection.closeConnection(conn);
+		return esito;
+
+	}
+	
 }

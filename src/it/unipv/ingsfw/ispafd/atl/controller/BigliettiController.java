@@ -193,7 +193,7 @@ public class BigliettiController {
 			
 			private void manageAction() {
 				
-				b.timbra();
+				m.timbraBiglietto((Biglietto)b);
 				v.updateBigliettiStatus(m);
 				
 			}

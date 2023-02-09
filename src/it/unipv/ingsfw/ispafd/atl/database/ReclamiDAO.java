@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
+import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.reclami.Reclamo;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Impiegato;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Utente;
@@ -50,6 +51,63 @@ public class ReclamiDAO{
 
 		DBConnection.closeConnection(conn);
 		return result;
+	}
+	
+	public boolean insertReclamo(Reclamo f) {
+
+		conn=DBConnection.startConnection(conn,schema);
+		PreparedStatement st1;
+		
+		boolean esito=true;
+
+		try
+		{
+			
+			String query="INSERT INTO reclamo (titolo,testoreclamo,id,utente) VALUES(?,?,?,?)";
+			st1 = conn.prepareStatement(query);
+			st1.setString(1, f.getTitolo());
+			st1.setString(2,f.getTesto());
+			st1.setString(3, f.getId());
+			st1.setString(4,f.getUtente().getUsername());
+			
+			st1.executeUpdate();
+
+		}catch (Exception e){
+			e.printStackTrace();
+			esito=false;
+		}
+
+		DBConnection.closeConnection(conn);
+		return esito;
+
+	}
+	
+	public boolean updateRisposta(String id, String risposta, String username) {
+
+		conn=DBConnection.startConnection(conn,schema);
+		PreparedStatement st1;
+		
+		boolean esito=true;
+
+		try
+		{
+			
+			String query="UPDATE reclamo SET testorisposta=?,impiegato=? WHERE id=?";
+			st1 = conn.prepareStatement(query);
+			st1.setString(1, risposta);
+			st1.setString(2, username);
+			st1.setString(3, id);
+			System.out.println(st1);
+			st1.executeUpdate();
+
+		}catch (Exception e){
+			e.printStackTrace();
+			esito=false;
+		}
+
+		DBConnection.closeConnection(conn);
+		return esito;
+
 	}
 	
 }

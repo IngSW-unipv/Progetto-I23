@@ -41,4 +41,8 @@ public class News {
 		 return autore;
 	 }
 	
+	 public String getId() {
+		 return id;
+	 }
+	 
 }

@@ -152,11 +152,9 @@ public class ReclamiController {
 			}
 			
 			private void manageAction() {
-			
-				rtemp.setRisposta(testor,((Impiegato)m.getLoggedUser()));
+				m.setRisposta(rtemp, testor, m.getLoggedUser());
 				view.changeView(view.getListaReclamiView(), m);
 				view.getListaReclamiView().setSuccessText("Risposta inviata correttamente!");
-				
 			}
 	    	  
 	    };

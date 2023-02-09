@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import it.unipv.ingsfw.ispafd.atl.database.*;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
+import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Biglietto;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.news.News;
 import it.unipv.ingsfw.ispafd.atl.model.reclami.Reclamo;
@@ -62,13 +63,15 @@ public class ATLModel {
 		
 		public void addUtente(Utente u) {
 			utenti.add(u);
+			System.out.println("qui");
+			utentidao.insertUtente(u);
 		}
 		
 		public void popolaUtenti() {
 			ArrayList<Utente> temp=utentidao.selectUtenti();
 			
 			for(Utente u: temp) {
-				addUtente(u);
+				utenti.add(u);
 			}
 			
 		}
@@ -86,7 +89,7 @@ public class ATLModel {
 			ArrayList<Abbonamento> temp=abbonamentidao.selectAbbonamenti(this);
 			
 			for(Abbonamento u: temp) {
-				addAbbonamento(u);
+				abbonamenti.add(u);
 			}
 			
 		}
@@ -95,7 +98,7 @@ public class ATLModel {
 			ArrayList<News> temp=newsdao.selectNews(this);
 			
 			for(News u: temp) {
-				addNews(u);
+				news.add(u);
 			}
 			
 		}
@@ -104,7 +107,7 @@ public class ATLModel {
 			ArrayList<Reclamo> temp=reclamidao.selectReclami(this);
 			
 			for(Reclamo u: temp) {
-				addReclamo(u);
+				reclami.add(u);
 			}
 			
 		}
@@ -160,6 +163,7 @@ public class ATLModel {
 		
 		public void addNews(News n) {
 			news.add(n);
+			newsdao.insertNews(n);
 		}
 		
 		public ArrayList<News> getNewsArray(){
@@ -193,6 +197,7 @@ public class ATLModel {
 		
 		public void addAbbonamento(Abbonamento a) {
 			abbonamenti.add(a);
+			abbonamentidao.insertAbbonamento(a);
 		}
 		
 		public Abbonamento getAbbonamentoById(String s) {
@@ -209,12 +214,18 @@ public class ATLModel {
 			
 		}
 		
+		public void timbraBiglietto(Biglietto b) {
+			b.timbra();
+			abbonamentidao.updateTimbratura(b.getId(), b.getDataTimbratura());
+		}
+		
 		public ArrayList<Reclamo> getListaReclami(){
 			return reclami;
 		}
 		
 		public void addReclamo(Reclamo r) {
 			reclami.add(r);
+			reclamidao.insertReclamo(r);
 		}
 		
 		public String getIdActualReclamo() {
@@ -237,6 +248,11 @@ public class ATLModel {
 			
 			return rtemp;
 			
+		}
+		
+		public void setRisposta(Reclamo r, String testo, Utente u) {
+			r.setRisposta(testo, (Impiegato)u);
+			reclamidao.updateRisposta(r.getId(), testo, u.getUsername());
 		}
 	
 }
