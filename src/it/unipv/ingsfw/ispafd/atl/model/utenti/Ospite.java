@@ -30,4 +30,8 @@ public class Ospite {
 		
 	}
 	
+	public void login(Utente u, ATLModel m) {
+		m.setLoggedUser(u);
+	}
+	
 }

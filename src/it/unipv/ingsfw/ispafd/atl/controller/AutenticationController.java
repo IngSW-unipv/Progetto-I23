@@ -196,7 +196,7 @@ public class AutenticationController {
 					Utente utemp=checkCredentials();
 					
 					if(utemp!=null) {
-						m.setLoggedUser(utemp);
+						m.getOspite().login(utemp, m);;
 						
 						view.changeView(view.getMainview(),m);
 						view.getMainview().setSuccessText("Login effettuato correttamente!");
