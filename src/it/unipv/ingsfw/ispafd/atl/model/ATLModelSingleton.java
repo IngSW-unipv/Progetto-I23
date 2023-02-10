@@ -167,7 +167,6 @@ public class ATLModelSingleton {
 			for(Utente u: utenti) {
 				if(u.getUsername().equals(username)) {
 					result = true; //username already exist
-					break;
 				}
 			}
 			

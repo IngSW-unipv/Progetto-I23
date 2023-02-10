@@ -2,6 +2,7 @@ package it.unipv.ingsfw.ispafd.atl.model.utenti;
 
 import java.util.ArrayList;
 
+import it.unipv.ingsfw.ispafd.atl.exception.*;
 import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
 
 public class OspiteSingleton {
@@ -26,12 +27,12 @@ public class OspiteSingleton {
 		
 		for(String s: parameters) {
 			if(s.length()==0) {
-				throw new Exception("Errore! Devi riempire tutti i campi");
+				throw new EmptyParametersException();
 			}
 		}
-		
-		if(m.checkUsernameAlreadyExist(parameters.get(3))) {
-			throw new Exception("Errore! Username già in uso");
+
+		if(m.checkUsernameAlreadyExist(parameters.get(2))) {
+			throw new AlreadyExistingUsernameException();
 		}
 		
 		Utente utemp = new Utente(parameters.get(0),parameters.get(1),parameters.get(2),parameters.get(3));

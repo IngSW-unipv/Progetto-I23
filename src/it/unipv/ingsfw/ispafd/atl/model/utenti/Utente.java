@@ -3,6 +3,7 @@ package it.unipv.ingsfw.ispafd.atl.model.utenti;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.unipv.ingsfw.ispafd.atl.exception.EmptyParametersException;
 import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Biglietto;
@@ -65,7 +66,7 @@ public class Utente {
 		
 		for(String s: parameters) {
 			if(s.length()==0) {
-				throw new Exception("Errore! Devi riempire tutti i campi");
+				throw new EmptyParametersException();
 			}
 		}
 		
