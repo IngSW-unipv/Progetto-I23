@@ -126,51 +126,19 @@ public class AutenticationController {
 			
 			private void manageAction() {
 				
-				if(!checkForErrors()) {
-					m.getOspite().createUtente(nome, cognome, username, password, m);
-
+				ArrayList<String> parameters = new ArrayList<String>();
+				parameters.add(nome); parameters.add(cognome); parameters.add(username); parameters.add(password);
+				
+				try {
+					m.getOspite().creaUtente(parameters, m);
+					
 					view.changeView(view.getMainview(),m);
 					view.getMainview().setSuccessText("Registrazione effettuata con successo!");
-					
-					
+				} catch(Exception e) {
+					view.getRegistrationview().setErrorText(e.getMessage());
 				}
 				
 			}
-			
-			private boolean checkForErrors() {
-				
-				if(checkEmptyInput()) {
-					view.getRegistrationview().setErrorText("Errore, tutti i campi devono essere riempiti");
-					return true;
-				}
-				
-				if(m.checkUsernameAlreadyExist(username)) {
-					view.getRegistrationview().setErrorText("Errore, l'username scelto è già in uso");
-					return true;
-				}
-				
-				return false;
-				
-			}
-			
-			private boolean checkEmptyInput() {
-				
-				if(!((isNotEmpty(nome))&&(isNotEmpty(cognome))&&(isNotEmpty(username))&&(isNotEmpty(password)))) {
-					return true;
-				}
-				
-				
-				return false; //every input has at least 1 character
-				
-			}
-			
-			private boolean isNotEmpty(String s) {
-				if(s.length()>0) {
-					return true;	//return true if string is not empty
-				}
-				return false;
-			}
-			
 	    	  
 	    };
 	    
@@ -191,64 +159,17 @@ public class AutenticationController {
 			
 			private void manageAction() {
 				
-				if(!checkForErrors()) {
+				ArrayList<String> parameters = new ArrayList<String>();
+				parameters.add(username); parameters.add(password);
+				
+				try {
+					m.getOspite().login(parameters, m);
 					
-					Utente utemp=checkCredentials();
-					
-					if(utemp!=null) {
-						m.getOspite().login(utemp, m);;
-						
-						view.changeView(view.getMainview(),m);
-						view.getMainview().setSuccessText("Login effettuato correttamente!");
-					} else {
-						view.getLoginview().setErrorText("Credenziali errate");
-					}
-					
+					view.changeView(view.getMainview(),m);
+					view.getMainview().setSuccessText("Login effettuato correttamente!");
+				} catch(Exception e) {
+					view.getLoginview().setErrorText(e.getMessage());
 				}
-				
-			}
-			
-			private boolean checkForErrors() {
-				
-				if(checkEmptyInput()) {
-					view.getLoginview().setErrorText("Errore, tutti i campi devono essere riempiti");
-					return true;
-				}
-				
-				return false;
-				
-			}
-			
-			private boolean checkEmptyInput() {
-				
-				if(!((isNotEmpty(username))&&(isNotEmpty(password)))) {
-					return true;
-				}
-				
-				return false; //every input has at least 1 character
-				
-			}
-			
-			private boolean isNotEmpty(String s) {
-				if(s.length()>0) {
-					return true;	//return true if string is not empty
-				}
-				return false;
-			}
-			
-			private Utente checkCredentials() {
-				
-				ArrayList<Utente> utenti = m.getUtentiArray();
-				Utente ureturn = null;
-				
-				for(Utente u: utenti) {
-					if((u.getUsername().equals(username)) && (u.getPassword().equals(password))) {
-						ureturn=u;
-						break;
-					}
-				}
-				
-				return ureturn;
 				
 			}
 	    	  
@@ -274,52 +195,19 @@ public class AutenticationController {
 			
 			private void manageAction() {
 				
-				if(!checkForErrors()) {
+				ArrayList<String> parameters = new ArrayList<String>();
+				parameters.add(nome); parameters.add(cognome); parameters.add(username); parameters.add(password); parameters.add(cf);
+				
+				try {
+					((Responsabile) m.getLoggedUser()).creaImpiegato(parameters, m);
 					
-					((Responsabile) m.getLoggedUser()).createImpiegato(nome,cognome,username,password,cf,m);
-
 					view.changeView(view.getMainview(),m);
 					view.getMainview().setSuccessText("Registrazione effettuata con successo!");
-					
-					
+				} catch(Exception e) {
+					view.getRegistrationview().setErrorText(e.getMessage());
 				}
 				
 			}
-			
-			private boolean checkForErrors() {
-				
-				if(checkEmptyInput()) {
-					view.getRegistrationDipendentiView().setErrorText("Errore, tutti i campi devono essere riempiti");
-					return true;
-				}
-				
-				if(m.checkUsernameAlreadyExist(username)) {
-					view.getRegistrationDipendentiView().setErrorText("Errore, l'username scelto è già in uso");
-					return true;
-				}
-				
-				return false;
-				
-			}
-			
-			private boolean checkEmptyInput() {
-				
-				if(!((isNotEmpty(nome))&&(isNotEmpty(cognome))&&(isNotEmpty(username))&&(isNotEmpty(password))&&(isNotEmpty(cf)))) {
-					return true;
-				}
-				
-				
-				return false; //every input has at least 1 character
-				
-			}
-			
-			private boolean isNotEmpty(String s) {
-				if(s.length()>0) {
-					return true;	//return true if string is not empty
-				}
-				return false;
-			}
-			
 	    	  
 	    };
 	    

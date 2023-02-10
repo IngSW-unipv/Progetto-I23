@@ -1,5 +1,7 @@
 package it.unipv.ingsfw.ispafd.atl.model.utenti;
 
+import java.util.ArrayList;
+
 import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
 import it.unipv.ingsfw.ispafd.atl.model.news.News;
 
@@ -26,8 +28,15 @@ public class Impiegato extends Utente{
 		return cf;
 	}
 	
-	public void postaNews(String titolo, String testo, ATLModelSingleton m) {
-		News ntemp = new News(titolo,testo,this);
+	public void postaNews(ArrayList<String> parameters, ATLModelSingleton m) throws Exception {
+		
+		for(String s: parameters) {
+			if(s.length()==0) {
+				throw new Exception("Errore! Devi riempire tutti i campi");
+			}
+		}
+		
+		News ntemp = new News(parameters.get(0),parameters.get(1),this);
 		m.addNews(ntemp);
 	}
 	

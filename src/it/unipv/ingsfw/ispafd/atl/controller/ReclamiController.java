@@ -74,46 +74,19 @@ public class ReclamiController {
 			
 			private void manageAction() {
 				
-				if(!checkForErrors()) {
-					m.getLoggedUser().postaReclamo(titolo, testo, m);
-
+				ArrayList<String> parameters = new ArrayList<String>();
+				parameters.add(titolo); parameters.add(testo);
+				
+				try {
+					m.getLoggedUser().postaReclamo(parameters, m);
+					
 					view.changeView(view.getMainview(),m);
 					view.getMainview().setSuccessText("Reclamo postato con successo!");
-					
-					
+				} catch(Exception e) {
+					view.getPostaReclamiView().setErrorText(e.getMessage());
 				}
 				
 			}
-			
-			private boolean checkForErrors() {
-				
-				if(checkEmptyInput()) {
-					view.getPostaReclamiView().setErrorText("Errore, tutti i campi devono essere riempiti");
-					return true;
-				}
-				
-				return false;
-				
-			}
-			
-			private boolean checkEmptyInput() {
-				
-				if(!((isNotEmpty(titolo))&&(isNotEmpty(testo)))) {
-					return true;
-				}
-				
-				
-				return false; //every input has at least 1 character
-				
-			}
-			
-			private boolean isNotEmpty(String s) {
-				if(s.length()>0) {
-					return true;	//return true if string is not empty
-				}
-				return false;
-			}
-			
 	    	  
 	    };
 	    

@@ -29,7 +29,7 @@ public class ModelConsistanceTests {
 		
 		ATLModelSingleton m = ATLModelSingleton.getIstance();
 		
-		ArrayList<Reclamo> reclamilist = m.getListaReclami();
+		ArrayList<Reclamo> reclamilist = m.getReclamiArray();
 		
 		for(Reclamo r: reclamilist) {
 			assertTrue(r.getImpiegato().isDipendente());

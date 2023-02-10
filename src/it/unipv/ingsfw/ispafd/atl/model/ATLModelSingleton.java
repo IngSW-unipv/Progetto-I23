@@ -129,6 +129,21 @@ public class ATLModelSingleton {
 			
 		}
 		
+		public Utente checkCredentials(String username, String password) {
+			
+			Utente ureturn = null;
+			
+			for(Utente u: utenti) {
+				if((u.getUsername().equals(username)) && (u.getPassword().equals(password))) {
+					ureturn=u;
+					break;
+				}
+			}
+			
+			return ureturn;
+			
+		}
+		
 		public void setLoggedUser(Utente u) {
 			this.loggeduser=u;
 		}
@@ -218,7 +233,7 @@ public class ATLModelSingleton {
 			abbonamentidao.updateTimbratura(b.getId(), b.getDataTimbratura());
 		}
 		
-		public ArrayList<Reclamo> getListaReclami(){
+		public ArrayList<Reclamo> getReclamiArray(){
 			return reclami;
 		}
 		

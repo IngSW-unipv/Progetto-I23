@@ -62,7 +62,7 @@ public class ListaReclamiView extends AbstractView{
 		
 		successlabel.setVisible(false);
 		
-		ArrayList<Reclamo> reclami = m.getListaReclami();
+		ArrayList<Reclamo> reclami = m.getReclamiArray();
 		listapulsanti.clear();
 		
 		GridBagConstraints c = new GridBagConstraints();

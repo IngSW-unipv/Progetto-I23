@@ -85,46 +85,19 @@ public class NewsController {
 			
 			private void manageAction() {
 				
-				if(!checkForErrors()) {
-					((Impiegato) m.getLoggedUser()).postaNews(titolo, testo, m);
-
+				ArrayList<String> parameters = new ArrayList<String>();
+				parameters.add(titolo); parameters.add(testo);
+				
+				try {
+					((Impiegato) m.getLoggedUser()).postaNews(parameters, m);
+					
 					view.changeView(view.getMainview(),m);
 					view.getMainview().setSuccessText("News postata con successo!");
-					
-					
+				} catch(Exception e) {
+					view.getPostaNewsView().setErrorText(e.getMessage());
 				}
 				
-			}
-			
-			private boolean checkForErrors() {
-				
-				if(checkEmptyInput()) {
-					view.getPostaNewsView().setErrorText("Errore, tutti i campi devono essere riempiti");
-					return true;
-				}
-				
-				return false;
-				
-			}
-			
-			private boolean checkEmptyInput() {
-				
-				if(!((isNotEmpty(titolo))&&(isNotEmpty(testo)))) {
-					return true;
-				}
-				
-				
-				return false; //every input has at least 1 character
-				
-			}
-			
-			private boolean isNotEmpty(String s) {
-				if(s.length()>0) {
-					return true;	//return true if string is not empty
-				}
-				return false;
-			}
-			
+			}			
 	    	  
 	    };
 	    

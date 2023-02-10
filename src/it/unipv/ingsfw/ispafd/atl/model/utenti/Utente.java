@@ -1,5 +1,6 @@
 package it.unipv.ingsfw.ispafd.atl.model.utenti;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
@@ -60,8 +61,15 @@ public class Utente {
 		
 	}
 	
-	public void postaReclamo(String titolo, String testo, ATLModelSingleton m) {
-		Reclamo rtemp = new Reclamo(titolo,testo,this);
+	public void postaReclamo(ArrayList<String> parameters, ATLModelSingleton m) throws Exception {
+		
+		for(String s: parameters) {
+			if(s.length()==0) {
+				throw new Exception("Errore! Devi riempire tutti i campi");
+			}
+		}
+		
+		Reclamo rtemp = new Reclamo(parameters.get(0),parameters.get(1),this);
 		m.addReclamo(rtemp);
 	}
 	
