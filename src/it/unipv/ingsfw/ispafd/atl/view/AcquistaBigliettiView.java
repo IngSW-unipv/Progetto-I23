@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
 
 public class AcquistaBigliettiView extends AbstractView{
@@ -102,7 +102,7 @@ public class AcquistaBigliettiView extends AbstractView{
 		
 	}
 	
-	public void resetLabel(ATLModelSingleTone m) {
+	public void resetLabel(ATLModelSingleton m) {
 		inputcarta.setText("");
 		
 		errorlabel.setVisible(false);

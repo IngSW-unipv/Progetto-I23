@@ -2,7 +2,7 @@ package it.unipv.ingsfw.ispafd.atl.model.utenti;
 
 import java.util.List;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Biglietto;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
@@ -46,7 +46,7 @@ public class Utente {
 	
 	//Dora 
 	
-	public void acquistaAbbonamento(Utente utenteProprietario, TipoAbbonamento tipoabbonamento, ATLModelSingleTone m) {
+	public void acquistaAbbonamento(Utente utenteProprietario, TipoAbbonamento tipoabbonamento, ATLModelSingleton m) {
 		
 		Abbonamento a;
 		
@@ -60,7 +60,7 @@ public class Utente {
 		
 	}
 	
-	public void postaReclamo(String titolo, String testo, ATLModelSingleTone m) {
+	public void postaReclamo(String titolo, String testo, ATLModelSingleton m) {
 		Reclamo rtemp = new Reclamo(titolo,testo,this);
 		m.addReclamo(rtemp);
 	}

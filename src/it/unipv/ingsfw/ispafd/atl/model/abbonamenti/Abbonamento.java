@@ -58,7 +58,4 @@ public class Abbonamento {
 		return false;
 	}
 	
-	public long getDataTimbratura() {
-		return -1;
-	}
 }

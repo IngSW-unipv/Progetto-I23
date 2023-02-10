@@ -1,6 +1,6 @@
 package it.unipv.ingsfw.ispafd.atl.view.form;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
 
 public class PostaReclamiView extends AbstractFormView{
 	
@@ -17,7 +17,7 @@ public class PostaReclamiView extends AbstractFormView{
 		
 	}
 	
-	public void resetLabel(ATLModelSingleTone m) {
+	public void resetLabel(ATLModelSingleton m) {
 		
 		errorlabel.setVisible(false);
 		getInput("titolo").setText("");

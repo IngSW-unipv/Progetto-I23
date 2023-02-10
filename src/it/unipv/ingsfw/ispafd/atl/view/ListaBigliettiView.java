@@ -13,8 +13,9 @@ import java.util.Date;
 import javax.swing.*;
 
 import it.unipv.ingsfw.ispafd.atl.controller.BigliettiController;
-import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
+import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Biglietto;
 
 public class ListaBigliettiView extends AbstractView{
 
@@ -77,7 +78,7 @@ public class ListaBigliettiView extends AbstractView{
 	}
 	
 	
-	public void resetLabel(ATLModelSingleTone m) {
+	public void resetLabel(ATLModelSingleton m) {
 		successlabel.setVisible(false);
 		
 		updateInterface(m);
@@ -86,7 +87,7 @@ public class ListaBigliettiView extends AbstractView{
 		
 	}
 	
-	public void updateInterface(ATLModelSingleTone m) {
+	public void updateInterface(ATLModelSingleton m) {
 		listapulsanti.clear();
 		listaconvalide.clear();
 		listatimbrature.clear();
@@ -192,29 +193,33 @@ public class ListaBigliettiView extends AbstractView{
 		updateBigliettiStatus(m);
 	}
 	
-	public void updateBigliettiStatus(ATLModelSingleTone m) {
+	public void updateBigliettiStatus(ATLModelSingleton m) {
 		
 		for(JButton b: listapulsanti) {
 			String stemp = (String) b.getClientProperty("id");
 			Abbonamento atemp = m.getAbbonamentoById(stemp);
 			
-			if(atemp.getDataTimbratura()>0) {
-				b.setVisible(false);
-				
-				SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy HH:mm");    
-				Date data1 = new Date(atemp.getDataTimbratura());
-				Date data2 = new Date(atemp.getDataScadenza());
-				
-				this.getTimbraturaById(stemp).setText(sdf.format(data1));
-				this.getScadenzaById(stemp).setText(sdf.format(data2));
-				
-				if(atemp.isExpired()) {
-					this.getConvalidaById(stemp).setText("Scaduto");
-					this.getConvalidaById(stemp).setForeground(Color.RED);
-				} else {
-					this.getConvalidaById(stemp).setText("In Corso di Validità");
-					this.getConvalidaById(stemp).setForeground(Color.GREEN);
+			try {
+				if(((Biglietto)atemp).getDataTimbratura()>0) {
+					b.setVisible(false);
+					
+					SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy HH:mm");    
+					Date data1 = new Date(((Biglietto)atemp).getDataTimbratura());
+					Date data2 = new Date(((Biglietto)atemp).getDataScadenza());
+					
+					this.getTimbraturaById(stemp).setText(sdf.format(data1));
+					this.getScadenzaById(stemp).setText(sdf.format(data2));
+					
+					if(atemp.isExpired()) {
+						this.getConvalidaById(stemp).setText("Scaduto");
+						this.getConvalidaById(stemp).setForeground(Color.RED);
+					} else {
+						this.getConvalidaById(stemp).setText("In Corso di Validità");
+						this.getConvalidaById(stemp).setForeground(Color.GREEN);
+					}
 				}
+			} catch(Exception e) { //just for checking if i call getdatatimbratura for an abbonamento 
+				
 			}
 		}
 		

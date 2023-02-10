@@ -2,7 +2,7 @@ package it.unipv.ingsfw.ispafd.atl.view.form;
 
 import javax.swing.*;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
 
 public class RegistrationDipendentiView extends AbstractFormView{
 
@@ -22,7 +22,7 @@ public class RegistrationDipendentiView extends AbstractFormView{
 		
 	}
 	
-	public void resetLabel(ATLModelSingleTone m) {
+	public void resetLabel(ATLModelSingleton m) {
 		
 		errorlabel.setVisible(false);
 		getInput("nome").setText("");

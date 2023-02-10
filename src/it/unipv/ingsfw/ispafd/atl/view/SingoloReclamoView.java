@@ -14,7 +14,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
 import it.unipv.ingsfw.ispafd.atl.model.reclami.Reclamo;
 
 public class SingoloReclamoView extends AbstractView{
@@ -98,7 +98,7 @@ public class SingoloReclamoView extends AbstractView{
 	
 	
 	
-	public void resetLabel(ATLModelSingleTone m) {
+	public void resetLabel(ATLModelSingleton m) {
 		
 		inputrisposta.setText("");
 		

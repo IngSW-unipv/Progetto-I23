@@ -21,7 +21,6 @@ public class Biglietto extends Abbonamento implements ITimbrabile{
 		this.datatimbratura = datatimbratura;
 	}
 	
-	@Override
 	public long getDataTimbratura() {
 		return datatimbratura;
 	}

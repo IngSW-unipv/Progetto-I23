@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
 import it.unipv.ingsfw.ispafd.atl.model.news.News;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Impiegato;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Utente;
@@ -23,7 +23,7 @@ public class NewsDAO{
 //		conn=DBConnection.startConnection(conn,schema);
 	}
 
-	public ArrayList<News> selectNews (ATLModelSingleTone m)
+	public ArrayList<News> selectNews (ATLModelSingleton m)
 	{
 		ArrayList<News> result = new ArrayList<>();
 

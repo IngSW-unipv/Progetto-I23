@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.reclami.Reclamo;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Impiegato;
@@ -24,7 +24,7 @@ public class ReclamiDAO{
 //		conn=DBConnection.startConnection(conn,schema);
 	}
 
-	public ArrayList<Reclamo> selectReclami (ATLModelSingleTone m)
+	public ArrayList<Reclamo> selectReclami (ATLModelSingleton m)
 	{
 		ArrayList<Reclamo> result = new ArrayList<>();
 

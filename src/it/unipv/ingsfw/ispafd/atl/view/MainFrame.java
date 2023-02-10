@@ -7,7 +7,7 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
 import it.unipv.ingsfw.ispafd.atl.view.form.LoginView;
 import it.unipv.ingsfw.ispafd.atl.view.form.PostaNewsView;
 import it.unipv.ingsfw.ispafd.atl.view.form.PostaReclamiView;
@@ -86,7 +86,7 @@ public class MainFrame extends JFrame{
 		
 	}
 	
-	public void changeView(AbstractView p, ATLModelSingleTone m) {
+	public void changeView(AbstractView p, ATLModelSingleton m) {
 		p.resetLabel(m);
 		c1.show(cardPanel, p.getCardPosition());
 		p.setVisible(true);

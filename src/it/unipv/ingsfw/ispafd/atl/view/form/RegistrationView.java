@@ -9,7 +9,7 @@ import java.awt.Insets;
 
 import javax.swing.*;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
 import it.unipv.ingsfw.ispafd.atl.view.AbstractView;
 
 public class RegistrationView extends AbstractFormView{
@@ -30,7 +30,7 @@ public class RegistrationView extends AbstractFormView{
 		
 	}
 	
-	public void resetLabel(ATLModelSingleTone m) {
+	public void resetLabel(ATLModelSingleton m) {
 		
 		errorlabel.setVisible(false);
 		getInput("nome").setText("");

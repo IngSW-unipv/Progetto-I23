@@ -10,14 +10,14 @@ import it.unipv.ingsfw.ispafd.atl.model.news.News;
 import it.unipv.ingsfw.ispafd.atl.model.reclami.Reclamo;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.*;
 
-public class ATLModelSingleTone {
+public class ATLModelSingleton {
 
-		private static ATLModelSingleTone jATLModel;
+		private static ATLModelSingleton jATLModel;
 		
 		private Utente loggeduser;
 		private ArrayList<Utente> utenti;
 		private ArrayList<News> news;
-		private OspiteSingleTone ospite;
+		private OspiteSingleton ospite;
 		private String idactualreclamo;
 		private ArrayList<TipoAbbonamento> tipoabbonamento;
 		private ArrayList<Abbonamento> abbonamenti;
@@ -29,7 +29,7 @@ public class ATLModelSingleTone {
 		private NewsDAO newsdao;
 		private ReclamiDAO reclamidao;
 		
-		private ATLModelSingleTone() {
+		private ATLModelSingleton() {
 			this.idactualreclamo = null;
 			this.loggeduser = null;
 			this.utenti = new ArrayList<Utente>();
@@ -51,10 +51,10 @@ public class ATLModelSingleTone {
 			popolaReclami();
 		}
 		
-		public static ATLModelSingleTone getIstance() {
+		public static ATLModelSingleton getIstance() {
 			
 			if(jATLModel==null) {
-				jATLModel = new ATLModelSingleTone();
+				jATLModel = new ATLModelSingleton();
 			}
 			
 			return jATLModel;
@@ -138,11 +138,11 @@ public class ATLModelSingleTone {
 			return loggeduser;
 		}
 		
-		public OspiteSingleTone getOspite() {
+		public OspiteSingleton getOspite() {
 			return ospite;
 		}
 		
-		public void setOspite(OspiteSingleTone o) {
+		public void setOspite(OspiteSingleton o) {
 			this.ospite=o;
 		}
 		

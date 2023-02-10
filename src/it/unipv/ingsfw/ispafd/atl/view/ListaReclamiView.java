@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 import it.unipv.ingsfw.ispafd.atl.controller.ReclamiController;
-import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
 import it.unipv.ingsfw.ispafd.atl.model.reclami.Reclamo;
 
 public class ListaReclamiView extends AbstractView{
@@ -58,7 +58,7 @@ public class ListaReclamiView extends AbstractView{
 	}
 	
 	
-	public void resetLabel(ATLModelSingleTone m) {
+	public void resetLabel(ATLModelSingleton m) {
 		
 		successlabel.setVisible(false);
 		

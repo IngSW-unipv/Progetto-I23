@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Utente;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Responsabile;
 import it.unipv.ingsfw.ispafd.atl.view.MainFrame;
@@ -16,7 +16,7 @@ public class AutenticationController {
 		//nothing
 	}
 	
-	public static void addListeners(ATLModelSingleTone m, MainFrame view) {
+	public static void addListeners(ATLModelSingleton m, MainFrame view) {
 		
 		ActionListener registrationdipendentipageswitch = new ActionListener() {
 

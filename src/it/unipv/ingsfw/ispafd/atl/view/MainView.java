@@ -15,7 +15,7 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
 
 public class MainView extends AbstractView{
 	
@@ -122,7 +122,7 @@ public class MainView extends AbstractView{
 		
 	}
 	
-	public void resetLabel(ATLModelSingleTone m) {
+	public void resetLabel(ATLModelSingleton m) {
 		successlabel.setVisible(false);
 		
 		if(m.getLoggedUser()!=null) {
