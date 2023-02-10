@@ -47,6 +47,10 @@ public class Reclamo implements IReplicabile{
 		return testo;
 	}
 	
+	public Impiegato getImpiegato() {
+		return impiegato;
+	}
+	
 	public String getTestoRisposta() {
 		return testorisposta;
 	}

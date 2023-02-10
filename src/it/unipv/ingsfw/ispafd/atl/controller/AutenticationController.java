@@ -84,7 +84,7 @@ public class AutenticationController {
 			}
 	    	  
 	    };
-	    //da migliorare (stesso listener a tre non va bene)
+
 	    view.getRegistrationview().getIndietrobutton().addActionListener(indietropageswitch);
 	    view.getLoginview().getIndietrobutton().addActionListener(indietropageswitch);
 	    view.getRegistrationDipendentiView().getIndietrobutton().addActionListener(indietropageswitch);

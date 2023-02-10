@@ -2,7 +2,7 @@ package it.unipv.ingsfw.ispafd.atl;
 
 import javax.swing.JFrame;
 
-import it.unipv.ingsfw.ispafd.atl.controller.MVCController;
+import it.unipv.ingsfw.ispafd.atl.controller.MVCControllerFacade;
 import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Biglietto;
@@ -29,7 +29,7 @@ public class ATLStarter {
 		
 		ATLModelSingleton m = ATLModelSingleton.getIstance();
 		
-		MVCController c = new MVCController(v,m);
+		MVCControllerFacade c = new MVCControllerFacade(v,m);
 		
 		OspiteSingleton o = OspiteSingleton.getIstance();
 		

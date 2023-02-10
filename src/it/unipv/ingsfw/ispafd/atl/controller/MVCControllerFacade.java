@@ -3,12 +3,12 @@ package it.unipv.ingsfw.ispafd.atl.controller;
 import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleton;
 import it.unipv.ingsfw.ispafd.atl.view.*;
 
-public class MVCController {
+public class MVCControllerFacade {
 
 	private static MainFrame view;
 	private static ATLModelSingleton m;
 	
-	public MVCController(MainFrame view, ATLModelSingleton m) {
+	public MVCControllerFacade(MainFrame view, ATLModelSingleton m) {
 		
 		this.view = view;
 		this.m = m;

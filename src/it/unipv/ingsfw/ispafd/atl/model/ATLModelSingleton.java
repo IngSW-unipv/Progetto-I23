@@ -63,7 +63,6 @@ public class ATLModelSingleton {
 		
 		public void addUtente(Utente u) {
 			utenti.add(u);
-			System.out.println("qui");
 			utentidao.insertUtente(u);
 		}
 		
