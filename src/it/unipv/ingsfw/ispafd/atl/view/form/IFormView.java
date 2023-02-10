@@ -4,7 +4,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public interface FormViewInterface {
+public interface IFormView {
 
 	public JButton getInviabutton();
 	

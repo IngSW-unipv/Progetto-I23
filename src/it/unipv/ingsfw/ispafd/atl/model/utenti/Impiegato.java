@@ -1,6 +1,6 @@
 package it.unipv.ingsfw.ispafd.atl.model.utenti;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
 import it.unipv.ingsfw.ispafd.atl.model.news.News;
 
 public class Impiegato extends Utente{
@@ -26,7 +26,7 @@ public class Impiegato extends Utente{
 		return cf;
 	}
 	
-	public void postaNews(String titolo, String testo, ATLModel m) {
+	public void postaNews(String titolo, String testo, ATLModelSingleTone m) {
 		News ntemp = new News(titolo,testo,this);
 		m.addNews(ntemp);
 	}

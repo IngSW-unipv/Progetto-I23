@@ -13,7 +13,7 @@ import javax.swing.*;
 
 import it.unipv.ingsfw.ispafd.atl.view.AbstractView;
 
-public abstract class AbstractFormView extends AbstractView implements FormViewInterface{
+public abstract class AbstractFormView extends AbstractView implements IFormView{
 	
 	protected JButton inviabutton;
 	protected JButton indietrobutton;

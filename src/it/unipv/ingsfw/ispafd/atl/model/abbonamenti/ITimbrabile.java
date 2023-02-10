@@ -1,6 +1,6 @@
 package it.unipv.ingsfw.ispafd.atl.model.abbonamenti;
 
-public interface Timbrabile {
+public interface ITimbrabile {
 
 	public void timbra();
 	

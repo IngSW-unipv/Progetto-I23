@@ -2,8 +2,8 @@ package it.unipv.ingsfw.ispafd.atl.model.reclami;
 
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Impiegato;
 
-public interface Replicabile {
+public interface IReplicabile {
 	
-	public void setRisposta(String s, Impiegato i);
+	public void setRisposta(String risposta, Impiegato impiegato);
 
 }

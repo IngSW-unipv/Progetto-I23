@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
 import it.unipv.ingsfw.ispafd.atl.model.reclami.Reclamo;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Impiegato;
 import it.unipv.ingsfw.ispafd.atl.view.MainFrame;
@@ -20,7 +20,7 @@ public class ReclamiController {
 		//nothing
 	}
 	
-	public static void addListeners(ATLModel m, MainFrame v) {
+	public static void addListeners(ATLModelSingleTone m, MainFrame v) {
 		
 		view = v;
 		
@@ -164,7 +164,7 @@ public class ReclamiController {
 		
 	}
 	
-	public static void updateApriListeners(ATLModel m, ArrayList<JButton> listapulsanti) {
+	public static void updateApriListeners(ATLModelSingleTone m, ArrayList<JButton> listapulsanti) {
 		
 		ActionListener singoloreclamopageswitch = new ActionListener() {
 			

@@ -14,7 +14,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
 import it.unipv.ingsfw.ispafd.atl.view.AbstractView;
 
 public class LoginView extends AbstractFormView{
@@ -32,7 +32,7 @@ public class LoginView extends AbstractFormView{
 		
 	}
 	
-	public void resetLabel(ATLModel m) {
+	public void resetLabel(ATLModelSingleTone m) {
 		
 		errorlabel.setVisible(false);
 		getInput("username").setText("");

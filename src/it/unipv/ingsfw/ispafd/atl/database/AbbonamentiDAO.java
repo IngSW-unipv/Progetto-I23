@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Biglietto;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
@@ -25,7 +25,7 @@ public class AbbonamentiDAO{
 //		conn=DBConnection.startConnection(conn,schema);
 	}
 
-	public ArrayList<Abbonamento> selectAbbonamenti (ATLModel m)
+	public ArrayList<Abbonamento> selectAbbonamenti (ATLModelSingleTone m)
 	{
 		ArrayList<Abbonamento> result = new ArrayList<>();
 

@@ -13,7 +13,7 @@ import java.util.Date;
 import javax.swing.*;
 
 import it.unipv.ingsfw.ispafd.atl.controller.BigliettiController;
-import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
 
 public class ListaBigliettiView extends AbstractView{
@@ -77,7 +77,7 @@ public class ListaBigliettiView extends AbstractView{
 	}
 	
 	
-	public void resetLabel(ATLModel m) {
+	public void resetLabel(ATLModelSingleTone m) {
 		successlabel.setVisible(false);
 		
 		updateInterface(m);
@@ -86,7 +86,7 @@ public class ListaBigliettiView extends AbstractView{
 		
 	}
 	
-	public void updateInterface(ATLModel m) {
+	public void updateInterface(ATLModelSingleTone m) {
 		listapulsanti.clear();
 		listaconvalide.clear();
 		listatimbrature.clear();
@@ -192,7 +192,7 @@ public class ListaBigliettiView extends AbstractView{
 		updateBigliettiStatus(m);
 	}
 	
-	public void updateBigliettiStatus(ATLModel m) {
+	public void updateBigliettiStatus(ATLModelSingleTone m) {
 		
 		for(JButton b: listapulsanti) {
 			String stemp = (String) b.getClientProperty("id");

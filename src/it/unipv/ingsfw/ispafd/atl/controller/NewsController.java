@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Impiegato;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Utente;
 import it.unipv.ingsfw.ispafd.atl.view.MainFrame;
@@ -15,7 +15,7 @@ public class NewsController {
 		//nothing
 	}
 	
-	public static void addListeners(ATLModel m, MainFrame view) {
+	public static void addListeners(ATLModelSingleTone m, MainFrame view) {
 		
 		ActionListener postanewspageswitch = new ActionListener() {
 

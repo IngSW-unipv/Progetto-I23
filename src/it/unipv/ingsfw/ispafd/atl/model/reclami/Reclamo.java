@@ -3,7 +3,7 @@ package it.unipv.ingsfw.ispafd.atl.model.reclami;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Impiegato;
 import it.unipv.ingsfw.ispafd.atl.model.utenti.Utente;
 
-public class Reclamo implements Replicabile{
+public class Reclamo implements IReplicabile{
 
 	private String titolo, testo, testorisposta, id;
 	private Utente utente;
@@ -51,9 +51,9 @@ public class Reclamo implements Replicabile{
 		return testorisposta;
 	}
 	
-	public void setRisposta(String s, Impiegato i) {
-		this.testorisposta = s;
-		this.impiegato = i;
+	public void setRisposta(String risposta, Impiegato impiegato) {
+		this.testorisposta = risposta;
+		this.impiegato = impiegato;
 	}
 	
 	

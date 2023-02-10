@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
 import it.unipv.ingsfw.ispafd.atl.model.news.News;
 
 public class NewsListView extends AbstractView{
@@ -49,7 +49,7 @@ public class NewsListView extends AbstractView{
 		
 	}
 	
-	public void resetLabel(ATLModel m) {
+	public void resetLabel(ATLModelSingleTone m) {
 		
 		ArrayList<News> news = m.getNewsArray();
 		

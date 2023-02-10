@@ -1,6 +1,6 @@
 package it.unipv.ingsfw.ispafd.atl.model.utenti;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
 
 public class Responsabile extends Impiegato{
 
@@ -8,7 +8,7 @@ public class Responsabile extends Impiegato{
 		super(nome, cognome, username, password, cf);
 	}
 	
-	public void createImpiegato(String nome, String cognome, String username, String password, String cf, ATLModel m) {
+	public void createImpiegato(String nome, String cognome, String username, String password, String cf, ATLModelSingleTone m) {
 		Impiegato itemp = new Impiegato(nome,cognome,username,password,cf);
 		
 		m.addUtente(itemp);

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 
-import it.unipv.ingsfw.ispafd.atl.model.ATLModel;
+import it.unipv.ingsfw.ispafd.atl.model.ATLModelSingleTone;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Abbonamento;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.Biglietto;
 import it.unipv.ingsfw.ispafd.atl.model.abbonamenti.TipoAbbonamento;
@@ -20,7 +20,7 @@ public class BigliettiController {
 		//nothing
 	}
 	
-	public static void addListeners(ATLModel m, MainFrame view) {
+	public static void addListeners(ATLModelSingleTone m, MainFrame view) {
 		
 		
 		ActionListener listabigliettiswitch = new ActionListener() {
@@ -175,7 +175,7 @@ public class BigliettiController {
 	    
 	}
 	
-	public static void updateTimbraListeners(ATLModel m, ArrayList<JButton> pulsanti, ListaBigliettiView v) {
+	public static void updateTimbraListeners(ATLModelSingleTone m, ArrayList<JButton> pulsanti, ListaBigliettiView v) {
 		
 		ActionListener actiontimbra = new ActionListener() {
 			
