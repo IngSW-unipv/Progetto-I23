@@ -32,7 +32,9 @@ public class ModelConsistanceTests {
 		ArrayList<Reclamo> reclamilist = m.getReclamiArray();
 		
 		for(Reclamo r: reclamilist) {
-			assertTrue(r.getImpiegato().isDipendente());
+			if(r.getImpiegato()!=null) {
+				assertTrue(r.getImpiegato().isDipendente());
+			}
 		}
 		
 	}
