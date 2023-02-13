@@ -11,6 +11,10 @@ Sistema informativo che attua la gestione di un'azienda di trasporti.
 - Post news
 - Reclami
 
+### Presentazione
+[Link Presentazione](https://www.canva.com/design/DAFX7tsCkqg/nVLz9wJqPjp8qdae6ThDcQ/view?utm_content=DAFX7tsCkqg&utm_campaign=designshare&utm_medium=link&utm_source=publishpresent)
+
+
 Progetto realizzato dal gruppo iSpafd
 
 ![logo](https://github.com/IngSW-unipv/Progetto-I23/blob/main/resources/disegno_cropped_png.png)
